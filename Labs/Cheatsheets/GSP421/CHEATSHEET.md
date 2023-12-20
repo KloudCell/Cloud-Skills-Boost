@@ -1,8 +1,11 @@
 # **To be execute in Google Cloud Shell**
 
 **1. Create a Cloud Storage Bucket**
+
 **2. Make a second Cloud Storage bucket**
+
 **3. Upload Files to Your Cloud Storage Bucket (demo-image1.png and demo-image2.png)**
+
 **4. Copy files between Cloud Storage buckets (demo-image1-copy.png)**
 
     export ID=$(gcloud config list --format 'value(core.project)')
