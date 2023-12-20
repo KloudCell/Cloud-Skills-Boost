@@ -3,7 +3,7 @@
 # Initialization
 gcloud init --skip-diagnostics
 
-# Create a Compute Engine Virtual Machine Instance
+# Enable Dialogflow API
 if (gcloud services enable dialogflow.googleapis.com)
 
 then
