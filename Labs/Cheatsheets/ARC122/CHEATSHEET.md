@@ -6,6 +6,8 @@
 
     export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
+    echo "Your API KEY: $API_KEY"
+
     # Get the ACL of the image
     acl=$(gsutil acl get gs://$BUCKET/manif-des-sans-papiers.jpg)
 
@@ -23,7 +25,8 @@
         gsutil cp manif-des-sans-papiers.jpg gs://$BUCKET
     fi
 
-    sleep  30    
+    sleep  30
+    echo "Your API KEY is: $API_KEY"  
 
 **2. Create and Update the json file**
 
