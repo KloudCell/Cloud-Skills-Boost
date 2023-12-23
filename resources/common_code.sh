@@ -16,5 +16,5 @@ NC='\033[0m' # No Color
 echo -e "Your Default PROJECT ID: ${BRIGHT_RED}$ID${NC}"
 echo -e "Your Default ZONE      : ${BRIGHT_RED}$ZONE${NC}"
 echo -e "Your Default REGION    : ${BRIGHT_RED}$REGION${NC}"
-echo -e "Your API KEY		    : ${BRIGHT_RED}$API_KEY${NC}"
+echo -e "Your API KEY           : ${BRIGHT_RED}$API_KEY${NC}"
 
