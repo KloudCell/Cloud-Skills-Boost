@@ -1,13 +1,13 @@
 #! /bin/bash
 
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/welcome.sh 2> /dev/null
-chmod +x welcome.sh
-./welcome.sh
+. welcome.sh
 
 # Initialization
 gcloud init --skip-diagnostics
 
-export ID=$(gcloud config list --format 'value(core.project)')
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
+source common_code.sh
 
 # Create 2 Cloud Storage Buckets
 if (gsutil mb gs://$ID

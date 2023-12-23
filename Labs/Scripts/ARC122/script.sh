@@ -1,18 +1,19 @@
 #! /bin/bash
 
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/welcome.sh 2> /dev/null
-chmod +x welcome.sh
-./welcome.sh
+. welcome.sh
 
 # Initialization
 gcloud init --skip-diagnostics
 
-export BUCKET=$(gcloud info --format='value(config.project)')-bucket
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
+source common_code.sh
+
+export BUCKET=$ID-bucket
 
 # Create an API KEY
-if (export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3))
-    
-then
+
+if [ -n "$API_KEY" ]; then
     sleep 30 && printf "\n\e[1;96m%s\n\n\e[m" 'API KEY Created: Checkpoint Completed (1/3)'
 fi
 
