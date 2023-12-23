@@ -15,9 +15,6 @@
     else
         # Set image Publicly accessible
         gsutil acl -r set public-read gs://$BUCKET
-
-        # Upload the image to the bucket
-        gsutil cp manif-des-sans-papiers.jpg gs://$BUCKET
     fi
 
     sleep  30
