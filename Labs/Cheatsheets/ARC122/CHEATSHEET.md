@@ -13,9 +13,6 @@
     if echo "$acl" | grep -q "allUsers"; then
         echo "Your image is publicly available."
     else
-        # Remove the image from the bucket
-        gsutil rm gs://$BUCKET/manif-des-sans-papiers.jpg
-
         # Set image Publicly accessible
         gsutil acl -r set public-read gs://$BUCKET
 
@@ -24,7 +21,7 @@
     fi
 
     sleep  30
-    
+
     echo "Your API KEY is: $API_KEY"  
 
 **2. Create and Update the json file**
