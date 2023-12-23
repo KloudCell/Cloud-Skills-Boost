@@ -1,12 +1,10 @@
 # **To be execute in Google Cloud Shell**
 
-**1. Create an API key.**
+**1. Create an API key**
 
     export BUCKET=$(gcloud info --format='value(config.project)')-bucket
 
     export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
-
-    echo "Your API KEY: $API_KEY"
 
     # Get the ACL of the image
     acl=$(gsutil acl get gs://$BUCKET/manif-des-sans-papiers.jpg)
@@ -26,6 +24,7 @@
     fi
 
     sleep  30
+    
     echo "Your API KEY is: $API_KEY"  
 
 **2. Create and Update the json file**
