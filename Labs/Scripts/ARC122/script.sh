@@ -10,7 +10,7 @@ gcloud init --skip-diagnostics
 export BUCKET=$(gcloud info --format='value(config.project)')-bucket
 
 # Create an API KEY
-if (export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3) && sleep 30)
+if (export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3))
     
 then
     sleep 30 && printf "\n\e[1;96m%s\n\n\e[m" 'API KEY Created: Checkpoint Completed (1/3)'
