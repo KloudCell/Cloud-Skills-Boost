@@ -9,6 +9,6 @@
 | GSP070 | <a href="https://www.cloudskillsboost.google/focuses/2754?parent=catalog">App Engine: Qwik Start - Go</a> | [![tick][tick]](Scripts/GSP070) | [![tick][tick]](Cheatsheets/GSP070/CHEATSHEET.md) | [![youtube][youtube]]() |
 
 
-[youtube]: /assets/you.png
+[youtube]: /assets/yt.png
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
