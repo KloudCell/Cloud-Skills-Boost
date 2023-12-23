@@ -66,7 +66,7 @@ else
     gsutil rm gs://$BUCKET/manif-des-sans-papiers.jpg
 
     # Download the image
-    wget https://github.com/KloudCell/Cloud-Skills-Boost/blob/main/Labs/Scripts/ARC122/manif-des-sans-papiers.jpg
+    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/manif-des-sans-papiers.jpg
 
     # Upload the image to the bucket
     gsutil cp manif-des-sans-papiers.jpg gs://$BUCKET
