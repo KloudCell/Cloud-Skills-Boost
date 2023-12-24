@@ -21,8 +21,17 @@ jobs:
         # Navigate to the desired directory
         cd Cloud-Skills-Boost/Labs/Cheatsheets
 
-        # Count the number of directories
+        # Count the number of cheatsheets
         dir_count=$(find . -type d -not -path '*/\.*' | wc -l)
 
-        # Print the number of directories
-        echo "Number of directories: $dir_count"
+        # Print the number of cheatsheets
+        echo "Number of cheatsheets: $dir_count"
+
+        # Navigate to the desired directory
+        cd ../Scripts
+
+        # Count the number of scripts
+        dir_count=$(find . -type d -not -path '*/\.*' | wc -l)
+
+        # Print the number of scripts
+        echo "Number of scripts: $dir_count"
