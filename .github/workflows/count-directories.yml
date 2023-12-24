@@ -35,7 +35,7 @@ jobs:
       uses: schneegans/dynamic-badges-action@v1.7.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: 796682df669c72353c4fa70f63ad2512
+        gistID: 44aeab7ee88202f9de432b2f79d598ee
         filename: dir_count.json
         label: Directories
         message: ${{ steps.count.outputs.dir_count }}
