@@ -7,6 +7,8 @@
 | GSP277 | <a href="https://www.cloudskillsboost.google/focuses/2457?parent=catalog">APIs Explorer: Qwik Start</a> | [![tick][tick]](Scripts/GSP277) | [![tick][tick]](Cheatsheets/GSP277/CHEATSHEET.md) | [![youtube][youtube]]() |
 | ARC122 | <a href="https://www.cloudskillsboost.google/focuses/64748?parent=catalog">Analyze Images with the Cloud Vision API: Challenge Lab</a> | [![tick][tick]](Scripts/ARC122) | [![tick][tick]](Cheatsheets/ARC122/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP070 | <a href="https://www.cloudskillsboost.google/focuses/2754?parent=catalog">App Engine: Qwik Start - Go</a> | [![tick][tick]](Scripts/GSP070) | [![tick][tick]](Cheatsheets/GSP070/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP069 | <a href="https://www.cloudskillsboost.google/focuses/2755?parent=catalog">App Engine: Qwik Start - PHP</a> | [![tick][tick]](Scripts/GSP069) | [![tick][tick]](Cheatsheets/GSP069/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP067 | <a href="https://www.cloudskillsboost.google/focuses/1014?parent=catalog">App Engine: Qwik Start - Python</a> | [![tick][tick]](Scripts/GSP067) | [![tick][tick]](Cheatsheets/GSP067/CHEATSHEET.md) | [![youtube][youtube]]() |
 
 
 [youtube]: /assets/yt.png
