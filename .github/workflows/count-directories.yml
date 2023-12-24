@@ -1,0 +1,28 @@
+name: Count Directories
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Count directories
+      run: |
+        # Clone the repository
+        git clone https://github.com/KloudCell/Cloud-Skills-Boost.git
+
+        # Navigate to the desired directory
+        cd Cloud-Skills-Boost/Labs/Cheatsheets
+
+        # Count the number of directories
+        dir_count=$(find . -type d -not -path '*/\.*' | wc -l)
+
+        # Print the number of directories
+        echo "Number of directories: $dir_count"
