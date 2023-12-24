@@ -33,7 +33,18 @@ jobs:
 
         # Count the number of scripts
         dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
+        # Set the directory count as an output variable
+        echo "::set-output name=dir_count::$dir_count"
 
+    - name: Create Directory Count Badge
+      uses: schneegans/dynamic-badges-action@v1.7.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: 796682df669c72353c4fa70f63ad2512
+        filename: dir_count.json
+        label: Directories
+        message: ${{ steps.count.outputs.dir_count }}
+        color: blue
 
 
         # Print the number of scripts
