@@ -35,7 +35,7 @@ else
 fi
 
 # Create and Update the json file
-wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/request.json
+wget -O request.json https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/request.json 2> /dev/null
 
 sed -i "s/BUCKET/$BUCKET/g" request.json
 
@@ -49,7 +49,7 @@ then
 fi
 
 # Update the json file to use the LANDMARK_DETECTION method
-wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/request1.json 2> /dev/null
+wget -O request1.json https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/request1.json 2> /dev/null
 
 sed -i "s/BUCKET/$BUCKET/g" request1.json
 
