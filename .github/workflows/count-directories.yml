@@ -37,6 +37,6 @@ jobs:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: 44aeab7ee88202f9de432b2f79d598ee
         filename: dir_count.json
-        label: Directories
+        label: Cheatsheets
         message: ${{ steps.count.outputs.dir_count }}
         color: blue
