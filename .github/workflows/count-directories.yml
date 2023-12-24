@@ -16,8 +16,11 @@ jobs:
     - name: Count directories
       id: count
       run: |
+        # Clone the repository
+        git clone https://github.com/KloudCell/Cloud-Skills-Boost.git
+
         # Navigate to the desired directory
-        cd Labs/Cheatsheets
+        cd Cloud-Skills-Boost/Labs/Cheatsheets
 
         # Count the number of directories
         dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
