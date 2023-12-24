@@ -1,4 +1,4 @@
-name: Count Directories
+name: Count Directories and Update Badge
 
 on:
   push:
@@ -14,25 +14,17 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Count directories
+      id: count
       run: |
-        # Clone the repository
-        git clone https://github.com/KloudCell/Cloud-Skills-Boost.git
-
         # Navigate to the desired directory
-        cd Cloud-Skills-Boost/Labs/Cheatsheets
+        cd Labs/Cheatsheets
 
-        # Count the number of cheatsheets
+        # Count the number of directories
         dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
 
+        # Print the number of directories
+        echo "Number of directories: $dir_count"
 
-        # Print the number of cheatsheets
-        echo "Number of cheatsheets: $dir_count"
-
-        # Navigate to the desired directory
-        cd ../Scripts
-
-        # Count the number of scripts
-        dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
         # Set the directory count as an output variable
         echo "::set-output name=dir_count::$dir_count"
 
@@ -45,7 +37,3 @@ jobs:
         label: Directories
         message: ${{ steps.count.outputs.dir_count }}
         color: blue
-
-
-        # Print the number of scripts
-        echo "Number of scripts: $dir_count"
