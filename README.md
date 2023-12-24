@@ -1,4 +1,4 @@
-# Cloud-Skills-Boost [![cheat][cheat]]() [![script][script]]() [![BSD3][BSD3]]()
+# Cloud-Skills-Boost [![cheat][cheat]](Labs/Cheatsheets) [![script][script]](Labs/Scripts) [![BSD3][BSD3]](LICENSE)
 
 **Google Cloud Platform Labs**
 
