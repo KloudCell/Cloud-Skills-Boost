@@ -9,6 +9,7 @@
 | GSP070 | <a href="https://www.cloudskillsboost.google/focuses/2754?parent=catalog">App Engine: Qwik Start - Go</a> | [![tick][tick]](Scripts/GSP070) | [![tick][tick]](Cheatsheets/GSP070/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP069 | <a href="https://www.cloudskillsboost.google/focuses/2755?parent=catalog">App Engine: Qwik Start - PHP</a> | [![tick][tick]](Scripts/GSP069) | [![tick][tick]](Cheatsheets/GSP069/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP067 | <a href="https://www.cloudskillsboost.google/focuses/1014?parent=catalog">App Engine: Qwik Start - Python</a> | [![tick][tick]](Scripts/GSP067) | [![tick][tick]](Cheatsheets/GSP067/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP851 | <a href="https://www.cloudskillsboost.google/focuses/23293?parent=catalog">BigQuery Machine Learning using Soccer Data</a> | [![tick][tick]](Scripts/GSP851) | [![tick][tick]](Cheatsheets/GSP851/CHEATSHEET.md) | [![youtube][youtube]]() |
 
 
 [youtube]: /assets/yt.png
