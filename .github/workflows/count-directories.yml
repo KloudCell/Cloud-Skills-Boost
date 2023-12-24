@@ -22,7 +22,7 @@ jobs:
         cd Cloud-Skills-Boost/Labs/Cheatsheets
 
         # Count the number of cheatsheets
-        dir_count=$(find . -type d -not -path '*/\.*' | wc -l)
+        dir_count=$(find . -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
 
         # Print the number of cheatsheets
         echo "Number of cheatsheets: $dir_count"
@@ -31,7 +31,8 @@ jobs:
         cd ../Scripts
 
         # Count the number of scripts
-        dir_count=$(find . -type d -not -path '*/\.*' | wc -l)
+        dir_count=$(find . -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
+
 
         # Print the number of scripts
         echo "Number of scripts: $dir_count"
