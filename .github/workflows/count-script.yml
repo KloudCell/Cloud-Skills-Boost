@@ -1,1 +1,39 @@
+name: Count Directories and Update Badge
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Count directories
+      id: count
+      run: |
+        # Navigate to the desired directory
+        cd Labs/Scripts
+
+        # Count the number of directories
+        dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
+
+        # Print the number of directories
+        echo "Number of directories: $dir_count"
+
+        # Set the directory count as an output variable
+        echo "::set-output name=dir_count::$dir_count"
+
+    - name: Create Directory Count Badge
+      uses: schneegans/dynamic-badges-action@v1.7.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: d3888850c70af7f8ce7b5df6960c2c45
+        filename: script.json
+        label: Script
+        message: ${{ steps.count.outputs.dir_count }}
+        color: green
