@@ -16,8 +16,6 @@ else
   REGION1=$REGION
 fi
 
-gcloud config set compute/region $REGION1
-
 git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
 
 cd python-docs-samples/appengine/standard_python3/hello_world

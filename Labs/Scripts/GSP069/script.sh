@@ -16,8 +16,6 @@ else
   REGION1=$REGION
 fi
 
-gcloud config set compute/region $REGION1
-
 git clone https://github.com/GoogleCloudPlatform/php-docs-samples.git
 
 cd php-docs-samples/appengine/standard/helloworld

@@ -16,8 +16,6 @@ else
   REGION1=$REGION
 fi
 
-gcloud config set compute/region $REGION1
-
 git clone https://github.com/GoogleCloudPlatform/golang-samples.git
 
 cd golang-samples/appengine/go11x/helloworld
