@@ -22,7 +22,7 @@ git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
 
 cd python-docs-samples/appengine/standard_python3/hello_world
 
-wget  2> /dev/null
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/GSP067/main.py 2> /dev/null
 
 echo "Y" > a
 
