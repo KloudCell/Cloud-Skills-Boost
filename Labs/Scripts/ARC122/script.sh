@@ -28,66 +28,36 @@ else
     gsutil rm gs://$BUCKET/manif-des-sans-papiers.jpg
 
     # Download the image
-    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/manif-des-sans-papiers.jpg
+    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/manif-des-sans-papiers.jpg 2> /dev/null
 
     # Upload the image to the bucket
     gsutil cp manif-des-sans-papiers.jpg gs://$BUCKET
 fi
 
 # Create and Update the json file
-echo '{
-  "requests": [
-      {
-        "image": {
-          "source": {
-              "gcsImageUri": "gs://BUCKET/manif-des-sans-papiers.jpg"
-          }
-        },
-        "features": [
-          {
-            "type": "TEXT_DETECTION" ,
-            "maxResults": 10
-          }
-        ]
-      }
-  ]
-}' > request.json
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/request.json
 
 sed -i "s/BUCKET/$BUCKET/g" request.json
 
 curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY} -o text-response.json
 
-if (gsutil cp text-response.json gs://$BUCKET)
+gsutil cp text-response.json gs://$BUCKET
 
+if [ $? -eq 0 ]
 then
     sleep 30 && printf "\n\e[1;96m%s\n\n\e[m" 'Updated the JSON File to use TEXT_DETECTION method: Checkpoint Completed (2/3)'
 fi
 
 # Update the json file to use the LANDMARK_DETECTION method
-echo '{
-  "requests": [
-      {
-        "image": {
-          "source": {
-              "gcsImageUri": "gs://BUCKET/manif-des-sans-papiers.jpg"
-          }
-        },
-        "features": [
-          {
-            "type": "LANDMARK_DETECTION" ,
-            "maxResults": 10
-          }
-        ]
-      }
-  ]
-}' > request.json
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/ARC122/request1.json 2> /dev/null
 
-sed -i "s/BUCKET/$BUCKET/g" request.json
+sed -i "s/BUCKET/$BUCKET/g" request1.json
 
-curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY} -o landmark-response.json
+curl -s -X POST -H "Content-Type: application/json" --data-binary @request1.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY} -o landmark-response.json
 
-if (gsutil cp landmark-response.json gs://$BUCKET)
+gsutil cp landmark-response.json gs://$BUCKET
 
+if [ $? -eq 0 ]
 then
     printf "\n\e[1;96m%s\n\n\e[m" 'Updated the JSON File to use LANDMARK_DETECTION method: Checkpoint Completed (3/3)'
 fi

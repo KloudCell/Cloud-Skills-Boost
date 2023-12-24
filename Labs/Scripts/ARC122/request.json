@@ -1,17 +1,17 @@
 {
-    "requests": [
-        {
-          "image": {
-            "source": {
-                "gcsImageUri": "gs://BUCKET/manif-des-sans-papiers.jpg"
-            }
-          },
-          "features": [
-            {
-              "type": "TEXT_DETECTION" ,
-              "maxResults": 10
-            }
-          ]
-        }
-    ]
-  }
+  "requests": [
+      {
+        "image": {
+          "source": {
+              "gcsImageUri": "gs://BUCKET/manif-des-sans-papiers.jpg"
+          }
+        },
+        "features": [
+          {
+            "type": "TEXT_DETECTION" ,
+            "maxResults": 10
+          }
+        ]
+      }
+  ]
+}
