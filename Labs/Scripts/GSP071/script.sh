@@ -100,7 +100,7 @@ then
                                         
                             if (echo "y" >  yes &&\
 
-                            sleep 30 &&\
+                            sleep 10 &&\
 
                             bq rm -r babynames < yes)
 
