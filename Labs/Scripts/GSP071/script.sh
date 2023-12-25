@@ -73,15 +73,43 @@ then
 
 # Remove the babynames dataset
 
-                    if (echo "y" >  yes &&\
+                    printf "\n\e[1;31m%s\n\n\e[m" 'Do not proceed further without checking the Green Tick in "Task 4 & 5"'
+                    while true; do
+                        echo -n "Did you get a green tick? [Y/N]: "
+                        read answer
 
-                    sleep 10 &&\
+                        if [ "$answer" = "${answer#[Yy]}" ] ;then
+                            echo "You answered no. Re-running the previous commands..."
+                            
+                            # Load the data into a new table
+                            if (curl -LO http://www.ssa.gov/OACT/babynames/names.zip &&\
+                            unzip names.zip &&\
+                            bq load babynames.names2010 yob2010.txt name:string,gender:string,count:integer)
+                            then
+                                printf "\n\e[1;96m%s\n\n\e[m" 'Loaded data into a dataset table: Checkpoint Completed (4/6)'
+                            fi
 
-                    bq rm -r babynames < yes)
+                            # Run queries against your dataset table
+                            if (bq query "SELECT name,count FROM babynames.names2010 WHERE gender = 'F' ORDER BY count DESC LIMIT 5" &&\
+                            bq query "SELECT name,count FROM babynames.names2010 WHERE gender = 'M' ORDER BY count ASC LIMIT 5")
+                            then
+                                printf "\n\e[1;96m%s\n\n\e[m" 'Run the Queries: Checkpoint Completed (5/6)'
+                            fi
+                        else
+                            echo "You answered yes. Proceeding further..."
+                                        
+                            if (echo "y" >  yes &&\
 
-                    then
-                        printf "\n\e[1;96m%s\n\n\e[m" 'Removed the babynames dataset: Checkpoint Completed (6/6)'
-                    fi
+                            sleep 30 &&\
+
+                            bq rm -r babynames < yes)
+
+                            then
+                                printf "\n\e[1;96m%s\n\n\e[m" 'Removed the babynames dataset: Checkpoint Completed (6/6)'
+                            fi
+                            break
+                        fi
+                    done
                 fi
             fi
         fi
