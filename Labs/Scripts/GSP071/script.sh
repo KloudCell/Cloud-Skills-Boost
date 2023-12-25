@@ -96,7 +96,7 @@ then
                                 printf "\n\e[1;96m%s\n\n\e[m" 'Run the Queries: Checkpoint Completed (5/6)'
                             fi
                         else
-                            echo "You answered yes. Proceeding further..."
+                            echo "You answered yes. Removing dataset..."
                                         
                             if (echo "y" >  yes &&\
 
