@@ -75,8 +75,7 @@ then
 
                     printf "\n\e[1;31m%s\n\n\e[m" 'Do not proceed further without checking the Green Tick in "Task 4 & 5"'
                     while true; do
-                        echo -n "Did you get a green tick? [Y/N]: "
-                        read answer
+                        read -p "Did you get a green tick? [Y/N]: " answer
 
                         if [ "$answer" = "${answer#[Yy]}" ] ;then
                             echo "You answered no. Re-running the previous commands..."
