@@ -5,7 +5,7 @@
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
     . common_code.sh
 
-## **Goto [Diaglogflow](https://dialogflow.cloud.google.com/)**
+## **Go to [Diaglogflow](https://dialogflow.cloud.google.com/)**
 
 - ### **Click on "Create Agent" and set**
 

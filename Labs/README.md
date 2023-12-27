@@ -16,3 +16,4 @@
 | GSP851 | [BigQuery Machine Learning using Soccer Data](https://www.cloudskillsboost.google/focuses/23293?parent=catalog) | [![tick][tick]](Scripts/GSP851) | [![tick][tick]](Cheatsheets/GSP851/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP071 | [BigQuery: Qwik Start - Command Line](https://www.cloudskillsboost.google/focuses/577?parent=catalog) | [![tick][tick]](Scripts/GSP071) | [![tick][tick]](Cheatsheets/GSP071/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP793 | [Adding a Phone Gateway to a Virtual Agent](https://www.cloudskillsboost.google/focuses/12038?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP793/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP872 | [API Gateway: Qwik Start](https://www.cloudskillsboost.google/focuses/17996?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP872/CHEATSHEET.md) | [![youtube][youtube]]() |
