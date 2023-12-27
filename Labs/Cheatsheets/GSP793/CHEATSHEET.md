@@ -34,7 +34,8 @@
 - #### Select the "Export and Import" tab.
 - #### Click Import from zip.
 - #### Select "pigeon-travel.zip"
-- #### Type in the word "IMPORT" in all caps to enable the import button and click Import
+- #### Type "IMPORT" to enable the import button
+- #### Click "Import"
 - #### Done
 
 ## Run Below Cmd in Google Cloud Shell and navigate to the link genrated from it
