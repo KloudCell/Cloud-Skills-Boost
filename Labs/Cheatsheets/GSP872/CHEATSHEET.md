@@ -24,7 +24,7 @@
 **Test the API Backend**
 
     cd ~
-    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions.yaml
+    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions.yaml 2> /dev/null
 
     export API_ID="hello-world-$(cat /dev/urandom | tr -dc 'a-z' | fold -w ${1:-8} | head -n 1)"
 
@@ -47,18 +47,19 @@
 
     export GATEWAY_URL=$(gcloud api-gateway gateways describe hello-gateway --location "$REGION" --format json | jq -r .defaultHostname)
 
-    echo $GATEWAY_URL
+    echo -e "Your Gateway URL is : ${BRIGHT_RED}$GATEWAY_URL${NC}"
 
     curl -s -w "\n" https://$GATEWAY_URL/hello
 
 **Securing access by using an API Key**
 
     MANAGED_SERVICE=$(gcloud api-gateway apis list --format json | jq -r .[0].managedService | cut -d'/' -f6)
-    echo $MANAGED_SERVICE
+    
+    echo -e "Your Managed Service is : ${BRIGHT_RED}$MANAGED_SERVICE${NC}"
 
     gcloud services enable $MANAGED_SERVICE
 
-    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions2.yaml
+    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions2.yaml 2> /dev/null
 
     sed -i "s/API_ID/${API_ID}/g" openapi2-functions2.yaml
     sed -i "s/PROJECT_ID/$ID/g" openapi2-functions2.yaml
