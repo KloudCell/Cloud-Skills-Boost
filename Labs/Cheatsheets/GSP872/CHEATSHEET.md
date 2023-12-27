@@ -24,30 +24,7 @@
 **Test the API Backend**
 
     cd ~
-    cat << 'EOF' > openapi2-functions.yaml
-    # openapi2-functions.yaml
-    swagger: '2.0'
-    info:
-    title: API_ID description
-    description: Sample API on API Gateway with a Google Cloud Functions backend
-    version: 1.0.0
-    schemes:
-    - https
-    produces:
-    - application/json
-    paths:
-    /hello:
-        get:
-        summary: Greet a user
-        operationId: hello
-        x-google-backend:
-            address: https://REGION-PROJECT_ID.cloudfunctions.net/helloGET
-        responses:
-        '200':
-            description: A successful response
-            schema:
-                type: string
-    EOF
+    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions.yaml
 
     export API_ID="hello-world-$(cat /dev/urandom | tr -dc 'a-z' | fold -w ${1:-8} | head -n 1)"
 
@@ -81,37 +58,7 @@
 
     gcloud services enable $MANAGED_SERVICE
 
-    cat << 'EOF' > openapi2-functions2.yaml
-    # openapi2-functions.yaml
-    swagger: '2.0'
-    info:
-    title: API_ID description
-    description: Sample API on API Gateway with a Google Cloud Functions backend
-    version: 1.0.0
-    schemes:
-    - https
-    produces:
-    - application/json
-    paths:
-    /hello:
-        get:
-        summary: Greet a user
-        operationId: hello
-        x-google-backend:
-            address: https://REGION-PROJECT_ID.cloudfunctions.net/helloGET
-        security:
-            - api_key: []
-        responses:
-        '200':
-            description: A successful response
-            schema:
-                type: string
-    securityDefinitions:
-    api_key:
-        type: "apiKey"
-        name: "key"
-        in: "query"
-    EOF
+    wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions2.yaml
 
     sed -i "s/API_ID/${API_ID}/g" openapi2-functions2.yaml
     sed -i "s/PROJECT_ID/$ID/g" openapi2-functions2.yaml
