@@ -5,35 +5,33 @@
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
     . common_code.sh
 
-## **Goto the link**
+## **Goto [Diaglogflow](https://dialogflow.cloud.google.com/)**
 
-    https://dialogflow.cloud.google.com/
+- ## **Click on "Create Agent" and set**
 
-## **Click on "Create Agent" and set**
+- ### Agent Name:
 
-### Agent Name:
+      pigeon-travel 
 
-    pigeon-travel 
-
-### Default Time Zone:
+- ### Default Time Zone:
 
     America/Denver
 
-### Google Project: 
+- ### Google Project: 
     
     select your Lab Project ID
    
-### Use below cmd in Cloud Shell to get your project ID
+- ### Use below cmd in Cloud Shell to get your project ID
 
-    echo $ID
+      echo $ID
 
 ## **Click on the ⚙ (settings gear icon) next to your agent name**
 
-- #### Goto below link and Download "pigeon-travel.zip"
+- #### Click on "pigeon-travel" below and Download "pigeon-travel.zip"
 
-    https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP793/pigeon-travel.zip
+    [pigeon-travel](https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP793/pigeon-travel.zip)
 
-- #### Select the Export and import tab.
+- #### Select the "Export and Import" tab.
 - #### Click Import from zip.
 - #### Select "pigeon-travel.zip"
 - #### Type in the word "IMPORT" in all caps to enable the import button and click Import
@@ -43,7 +41,6 @@
 
     echo https://dialogflow.cloud.google.com/#/agent/$ID/integrations
 
-- #### Click on the link
 - #### Click on Dialogflow Phone Gateway
 - #### Click Next -> Create
 
