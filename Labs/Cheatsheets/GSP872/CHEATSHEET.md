@@ -72,13 +72,17 @@
     --api=$API_ID --openapi-spec=openapi2-functions2.yaml \
     --project=$ID --backend-auth-service-account=$QWIKLAB
 
-    gcloud api-gateway gateways update hello-gateway\
-    --api-config=hello-config --api=$API_ID --location=$REGION --project=$ID
+    gcloud api-gateway gateways update hello-gateway \
+    --api=$API_ID \
+    --api-config=hello-config \
+    --location=$REGION \
+    --project=$ID
+
 
 **Testing API call using API Key**
 
     export GATEWAY_URL=$(gcloud api-gateway gateways describe hello-gateway --location $REGION --format json | jq -r .defaultHostname)
-    curl -sL $GATEWAY_URL/hello
+    echo -e "Your Gateway URL is : ${BRIGHT_RED}$GATEWAY_URL${NC}"
 
     hello=''
     while [ "$hello" != "Hello World!" ]; do   hello=`curl -sL -w "\n" $GATEWAY_URL/hello?key=$API_KEY`;	echo $hello; done
