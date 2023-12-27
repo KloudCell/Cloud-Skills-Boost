@@ -1,0 +1,35 @@
+name: Fetch and Store Traffic Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # This will run the workflow every day at midnight
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Fetch Traffic Data
+      run: |
+        curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/$GITHUB_REPOSITORY/traffic/views > traffic.json
+      shell: bash
+
+    - name: Commit and Push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add traffic.json
+        git commit -m "Update traffic data" && git push
+      shell: bash
+
+    - name: Create Awesome Badge
+      uses: schneegans/dynamic-badges-action@v1.7.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: <gist-ID>
+        filename: test.json # Use test.svg if you want to use the SVG mode.
+        label: Views
+        message: ${{ steps.fetch.outputs.views }}
+        color: orange
