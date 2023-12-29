@@ -19,8 +19,7 @@ git clone https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git &&\
 
 cd nodejs-docs-samples/functions/helloworld/helloworldGet &&\
 
-gcloud functions deploy helloGET --runtime nodejs14 --trigger-http --allow-unauthenticated --region $REGION --project $ID
-)
+gcloud functions deploy helloGET --runtime nodejs14 --trigger-http --allow-unauthenticated --region $REGION --project $ID)
 
 then
     printf "\n\e[1;96m%s\n\n\e[m" 'Setup Completed: Checkpoint Completed (0/6)'
