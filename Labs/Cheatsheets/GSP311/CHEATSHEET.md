@@ -52,7 +52,8 @@
 
     cd saf-longrun-job-dataflow
 
-    docker run -it python:3.7 /bin/bash
+    python -m virtualenv env -p python3
+    source env/bin/activate
     pip install apache-beam[gcp]
     pip install dateparser
 
