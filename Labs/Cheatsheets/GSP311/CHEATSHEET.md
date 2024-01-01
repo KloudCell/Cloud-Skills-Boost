@@ -38,6 +38,7 @@
 **6. Deploy a Cloud dataflow pipeline**
 
     git clone https://github.com/GoogleCloudPlatform/dataflow-contact-center-speech-analysis.git
+    gsutil mb -l $REGION gs://$BUCKET_NAME/
     cd dataflow-contact-center-speech-analysis/saf-longrun-job-func
     gcloud functions deploy safLongRunJobFunc --runtime nodejs12 --trigger-resource $BUCKET_NAME --region $REGION --trigger-event google.storage.object.finalize
 
