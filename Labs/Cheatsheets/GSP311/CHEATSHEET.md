@@ -63,12 +63,12 @@
 **8. Run a data loss prevention job**
 
     python saflongrunjobdataflow.py \
-    --project=$DEVSHELL_PROJECT_ID \
+    --project=$ID \
     --region=$REGION \
-    --input_topic=projects/$DEVSHELL_PROJECT_ID/topics/$TOPIC_NAME \
+    --input_topic=projects/$ID/topics/$TOPIC_NAME \
     --runner=DataflowRunner \
     --temp_location=gs://$BUCKET_NAME/$DATAFLOW_OBJECT_NAME \
-    --output_bigquery=$DEVSHELL_PROJECT_ID:$DATASET_NAME.transcripts \
+    --output_bigquery=$ID:$DATASET_NAME.transcripts \
     --requirements_file=requirements.txt
 
     sleep 20
@@ -81,12 +81,12 @@
     do
         echo "Job not running, state is $STATE. Rerunnig the cmd..."
         python saflongrunjobdataflow.py \
-        --project=$DEVSHELL_PROJECT_ID \
+        --project=$ID \
         --region=$REGION \
-        --input_topic=projects/$DEVSHELL_PROJECT_ID/topics/$TOPIC_NAME \
+        --input_topic=projects/$ID/topics/$TOPIC_NAME \
         --runner=DataflowRunner \
         --temp_location=gs://$BUCKET_NAME/$DATAFLOW_OBJECT_NAME \
-        --output_bigquery=$DEVSHELL_PROJECT_ID:$DATASET_NAME.transcripts \
+        --output_bigquery=$ID:$DATASET_NAME.transcripts \
         --requirements_file=requirements.txt
         sleep 20
         STATE=$(gcloud dataflow jobs list --sort-by=~CREATION_TIME --limit=1 --region $REGION --format="value(STATE)")
@@ -140,7 +140,7 @@
 
 
     bq query --use_legacy_sql=false \
-    --destination_table=$DEVSHELL_PROJECT_ID:$DATASET_NAME.saf \
+    --destination_table=$ID:$DATASET_NAME.saf \
     "SELECT entities.name, entities.type, COUNT(entities.name) AS count
     FROM $DATASET_NAME.transcripts, UNNEST(entities) entities
     GROUP BY entities.name, entities.type
@@ -148,7 +148,7 @@
     ORDER BY count ASC"
 
     bq query --use_legacy_sql=false \
-    --destination_table=$DEVSHELL_PROJECT_ID:$DATASET_NAME.kloud \
+    --destination_table=$ID:$DATASET_NAME.kloud \
     "SELECT entities.name, entities.type, COUNT(entities.name) AS count
     FROM $DATASET_NAME.transcripts, UNNEST(entities) entities
     GROUP BY entities.name, entities.type
@@ -157,7 +157,7 @@
 
 **Now, go to the link echoed after running below cmd**
 
-    echo https://console.cloud.google.com/bigquery?referrer=search&project=$ID
+    echo "https://console.cloud.google.com/bigquery?referrer=search&project=$ID"
 
 ***Click on "kloud" table -> Export -> Scan with Sensitive Data Protection***
 
