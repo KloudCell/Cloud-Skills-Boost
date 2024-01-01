@@ -205,10 +205,8 @@ fi
 
 # Train the new model
 if (bq query --nouse_legacy_sql \
-'CREATE OR REPLACE MODEL
-  `bracketology.ncaa_model_updated`
-OPTIONS
-  ( model_type="logistic_reg") AS
+'CREATE OR REPLACE MODEL `bracketology.ncaa_model_updated`
+OPTIONS(model_type="logistic_reg") AS
 SELECT
   season,
   label,
@@ -231,13 +229,12 @@ SELECT
   eff_stat_diff,
   eff_rating_diff
 FROM `bracketology.training_new_features`
-WHERE season BETWEEN 2014 AND 2017' &&\
+WHERE season BETWEEN 2014 AND 2017;
 
-bq query --nouse_legacy_sql \
-'SELECT
+SELECT
   *
 FROM
-  ML.EVALUATE(MODEL     `bracketology.ncaa_model_updated`)')
+  ML.EVALUATE(MODEL `bracketology.ncaa_model_updated`);')
 
 then
     printf "\n\e[1;96m%s\n\n\e[m" 'Trained the new model and made evaluation: Checkpoint Completed (6/8)'
