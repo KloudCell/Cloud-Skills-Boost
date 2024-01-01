@@ -17,7 +17,7 @@ if (bq query --nouse_legacy_sql \
   ORDER BY season')
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Available Seasons and Games: Checkpoint Completed (1/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Available Seasons and Games: Checkpoint Completed (1/8)'
 fi
 
 # Create a labeled machine learning dataset
@@ -63,7 +63,7 @@ FROM
 )
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Labeled machine learning dataset: Checkpoint Completed (2/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Labeled machine learning dataset: Checkpoint Completed (2/8)'
 fi
 
 # Create a machine learning model to predict the winner based on seed and team name
@@ -110,7 +110,7 @@ FROM
       ORDER BY weight DESC')
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Machine learning model: Checkpoint Completed (3/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Machine learning model: Checkpoint Completed (3/8)'
 fi
 
 # Making predictions
@@ -128,7 +128,7 @@ SELECT * FROM ML.PREDICT(MODEL `bracketology.ncaa_model`,
 )')
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Evaluate model performance and create table: Checkpoint Completed  (4/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Evaluate model performance and create table: Checkpoint Completed  (4/8)'
 fi
 
 # Create a new ML dataset with these skillful features
@@ -200,7 +200,7 @@ ON o.opponent_school_ncaa = opp.team AND o.season = opp.season'
 )
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Using skillful ML model features: Checkpoint Completed (5/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Using skillful ML model features: Checkpoint Completed (5/8)'
 fi
 
 # Train the new model
@@ -208,7 +208,7 @@ if (bq query --nouse_legacy_sql \
 'CREATE OR REPLACE MODEL
   `bracketology.ncaa_model_updated`
 OPTIONS
-  ( model_type='logistic_reg') AS
+  ( model_type="logistic_reg") AS
 SELECT
   season,
   label,
@@ -240,7 +240,7 @@ FROM
   ML.EVALUATE(MODEL     `bracketology.ncaa_model_updated`)')
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Trained the new model and made evaluation: Checkpoint Completed (6/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Trained the new model and made evaluation: Checkpoint Completed (6/8)'
 fi
 
 # Prediction time!
@@ -259,7 +259,7 @@ FROM
   )')
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'Created table ncaa_2018_predictions: Checkpoint Completed (7/6)'
+    printf "\n\e[1;96m%s\n\n\e[m" 'Created table ncaa_2018_predictions: Checkpoint Completed (7/8)'
 fi
 
 # Predicting for the 2019 March Madness tournament
