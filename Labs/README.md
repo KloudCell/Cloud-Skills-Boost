@@ -18,3 +18,4 @@
 | GSP793 | [Adding a Phone Gateway to a Virtual Agent](https://www.cloudskillsboost.google/focuses/12038?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP793/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP872 | [API Gateway: Qwik Start](https://www.cloudskillsboost.google/focuses/17996?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP872/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP311 | [Automate Interactions with Contact Center AI: Challenge Lab](https://www.cloudskillsboost.google/focuses/12008?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP311/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP461 | [Bracketology with Google Machine Learning](https://www.cloudskillsboost.google/focuses/4337?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP461/CHEATSHEET.md) | [![youtube][youtube]]() |
