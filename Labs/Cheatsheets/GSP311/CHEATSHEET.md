@@ -147,6 +147,8 @@
     HAVING count > 5
     ORDER BY count ASC"
 
+    sleep 33
+
     bq query --use_legacy_sql=false \
     --destination_table=$ID:$DATASET_NAME.kloud \
     "SELECT entities.name, entities.type, COUNT(entities.name) AS count
