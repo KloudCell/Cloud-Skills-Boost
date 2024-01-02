@@ -18,7 +18,7 @@ then
 
 # Create a request to classify a news article
 # Check the Entity Analysis response
-    if (wget 2> /dev/null
+    if (wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/GSP063/a.sh 2> /dev/null
 
     sed -i "s/YOUR_API_KEY/$API_KEY/g" a.sh
 
