@@ -20,4 +20,4 @@
 | GSP311 | [Automate Interactions with Contact Center AI: Challenge Lab](https://www.cloudskillsboost.google/focuses/12008?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP311/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP461 | [Bracketology with Google Machine Learning](https://www.cloudskillsboost.google/focuses/4337?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP461/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP063 | [Classify Text into Categories with the Natural Language API](https://www.cloudskillsboost.google/focuses/1749?parent=catalog) | [![tick][tick]](Scripts/GSP063) | [![tick][tick]](Cheatsheets/GSP063/CHEATSHEET.md) | [![youtube][youtube]]() |
-| GSP294 | [Introduction to APIs in Google Cloud](https://www.cloudskillsboost.google/focuses/3473?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP294/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP294 | [Introduction to APIs in Google Cloud](https://www.cloudskillsboost.google/focuses/3473?parent=catalog) | [![tick][tick]](Scripts/GSP294) | [![tick][tick]](Cheatsheets/GSP294/CHEATSHEET.md) | [![youtube][youtube]]() |
