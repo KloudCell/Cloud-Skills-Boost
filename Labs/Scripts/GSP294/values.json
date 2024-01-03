@@ -1,0 +1,4 @@
+{  "name": "BUCKET",
+   "location": "us",
+   "storageClass": "multi_regional"
+}
