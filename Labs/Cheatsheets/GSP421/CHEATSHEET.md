@@ -20,3 +20,5 @@
     gsutil cp demo-image2.png gs://$ID
 
     gsutil cp gs://$ID/demo-image1.png gs://$ID-2/demo-image1-copy.png
+
+## Lab Completed🎉

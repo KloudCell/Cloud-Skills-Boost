@@ -1,51 +1,51 @@
 # **To be done using Google Cloud Shell and Dialogflow**
 
-## **Run in CloudShell**
+### **Run in CloudShell**
 
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
     . common_code.sh
 
-## **Go to [Diaglogflow](https://dialogflow.cloud.google.com/)**
+### **Go to [Diaglogflow](https://dialogflow.cloud.google.com/)**
 
-- ### **Click on "Create Agent" and set**
+- **Click on "Create Agent" and set**
 
-- ### Agent Name:
+- **Agent Name:**
 
       pigeon-travel 
 
-- ### Default Time Zone:
+- **Default Time Zone:**
 
     America/Denver
 
-- ### Google Project: 
+- **Google Project:**
     
     select your Lab Project ID
    
-- ### Use below cmd in Cloud Shell to get your project ID
+- **Use below cmd in Cloud Shell to get your project ID**
 
       echo $ID
 
-## **Click on the ⚙ (settings gear icon) next to your agent name**
+### **Click on the ⚙ (settings gear icon) next to your agent name**
 
-- #### Click on "pigeon-travel" below and Download "pigeon-travel.zip"
+- **Click on "pigeon-travel" below and Download "pigeon-travel.zip"**
 
     [pigeon-travel](https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP793/pigeon-travel.zip)
 
-- #### Select the "Export and Import" tab.
-- #### Click Import from zip.
-- #### Select "pigeon-travel.zip"
-- #### Type "IMPORT" to enable the import button
-- #### Click "Import"
-- #### Done
+- **Select the "Export and Import" tab.**
+- **Click Import from zip.**
+- **Select "pigeon-travel.zip"**
+- **Type "IMPORT" to enable the import button**
+- **Click "Import"**
+- **Done**
 
-## Run Below Cmd in Google Cloud Shell and navigate to the link genrated from it
+### Run Below Cmd in Google Cloud Shell and navigate to the link genrated from it
 
     echo https://dialogflow.cloud.google.com/#/agent/$ID/integrations
 
-- #### Click on Dialogflow Phone Gateway
-- #### Click Next -> Create
+- **Click on Dialogflow Phone Gateway**
+- **Click Next -> Create**
 
-## Run in Google Cloud Shell
+### Run in Google Cloud Shell
 
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP793/pigeon-travel-gsp-793-cloud-function.zip
 
@@ -58,4 +58,4 @@
     --entry-point=dialogflowFirebaseFulfillment \
     --source gs://$ID/pigeon-travel-gsp-793-cloud-function.zip
 
-### Lab Completed🎉
+## Lab Completed🎉

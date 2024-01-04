@@ -15,3 +15,4 @@
 
     gsutil acl ch -u AllUsers:R gs://$ID-bucket/demo-image.jpg
 
+## Lab Completed🎉

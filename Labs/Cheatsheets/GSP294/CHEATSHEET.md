@@ -1,8 +1,8 @@
 # **To be execute in Google Cloud Shell**
 
-### **Create a bucket with the Cloud Storage JSON/REST API**
+**1. Create a bucket with the Cloud Storage JSON/REST API**
 
-### **Upload a file using the Cloud Storage JSON/REST API**
+**2. Upload a file using the Cloud Storage JSON/REST API**
 
     gcloud services enable fitness.googleapis.com storage-api.googleapis.com
 

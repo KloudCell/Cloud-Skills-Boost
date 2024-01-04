@@ -74,3 +74,5 @@
     curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY} -o landmark-response.json
 
     gsutil cp landmark-response.json gs://$BUCKET
+
+## Lab Completed🎉

@@ -1,10 +1,10 @@
 # **To be execute in Google Cloud Shell**
 
-### **2. Create an API key**
+**1. Create an API key**
 
-### **3. Classify a news article**
+**2. Classify a news article**
 
-### **5. Create a BigQuery table for categorized text data**
+**3. Create a BigQuery table for categorized text data**
 
     gcloud services enable \
     language.googleapis.com

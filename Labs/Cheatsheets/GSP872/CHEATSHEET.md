@@ -15,13 +15,13 @@
 
     gcloud functions deploy helloGET --runtime nodejs14 --trigger-http --allow-unauthenticated --region $REGION --project $ID
 
-**Deploying an API backend**
+**1. Deploying an API backend**
 
     gcloud functions describe helloGET --region $REGION
 
     curl -v https://"$REGION"-"$ID".cloudfunctions.net/helloGET
 
-**Test the API Backend**
+**2. Test the API Backend**
 
     cd ~
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP872/openapi2-functions.yaml 2> /dev/null
@@ -32,7 +32,7 @@
     sed -i "s/PROJECT_ID/$ID/g" openapi2-functions.yaml
     sed -i "s/REGION/$REGION/g" openapi2-functions.yaml
 
-**Creating a gateway**
+**3. Creating a gateway**
 
     gcloud api-gateway apis create $API_ID --display-name="Hello World API" --project=$ID
 
@@ -51,7 +51,7 @@
 
     curl -s -w "\n" https://$GATEWAY_URL/hello
 
-**Securing access by using an API Key**
+**4. Securing access by using an API Key**
 
     MANAGED_SERVICE=$(gcloud api-gateway apis list --format json | jq -r .[0].managedService | cut -d'/' -f6)
     
@@ -65,7 +65,7 @@
     sed -i "s/PROJECT_ID/$ID/g" openapi2-functions2.yaml
     sed -i "s/REGION/$REGION/g" openapi2-functions2.yaml
 
-**Create and deploy a new API config to your existing gateway**
+**5. Create and deploy a new API config to your existing gateway**
 
     QWIKLAB=$ID@$ID.iam.gserviceaccount.com
 
@@ -80,7 +80,7 @@
     --project=$ID
 
 
-**Testing API call using API Key**
+**6. Testing API call using API Key**
 
     export GATEWAY_URL=$(gcloud api-gateway gateways describe hello-gateway --location $REGION --format json | jq -r .defaultHostname)
     echo -e "Your Gateway URL is : ${BRIGHT_RED}$GATEWAY_URL${NC}"
@@ -88,4 +88,4 @@
     hello=''
     while [ "$hello" != "Hello World!" ]; do   hello=`curl -sL -w "\n" $GATEWAY_URL/hello?key=$API_KEY`;	echo $hello; done
 
-***Lab Completed🎉***
+## Lab Completed🎉
