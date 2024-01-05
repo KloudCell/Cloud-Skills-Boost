@@ -9,8 +9,13 @@
 
 | S.No | Name | Script | Cheatsheet | Playlist |
 | :--: | :---: | :------: | :--------: | :------: |
-| 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [tick]() | [tick]() | [you]() |
-| 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [tick]() | [you]() |
-| 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [tick]() | [you]() |
-| 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [tick]() | [you]() |
-| 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [tick]() | [you]() |
+| 1 | [Vertex AI: Qwik Start](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) | [tick]() | [tick]() | [you]() |
+| 2 | [Dataprep: Qwik Start](https://www.cloudskillsboost.google/focuses/584?parent=catalog) | [tick]() | [you]() |
+| 3 | [Dataflow: Qwik Start - Templates](https://www.cloudskillsboost.google/focuses/1101?parent=catalog) | [tick]() | [you]() |
+| 4 | [Dataflow: Qwik Start - Python](https://www.cloudskillsboost.google/focuses/1100?parent=catalog) | [tick]() | [you]() |
+| 5 | [Dataproc: Qwik Start - Console](https://www.cloudskillsboost.google/focuses/586?parent=catalog) | [tick]() | [you]() |
+| 6 | [Dataproc: Qwik Start - Command Line](https://www.cloudskillsboost.google/focuses/585?parent=catalog) | [tick]() | [you]() |
+| 7 | [Cloud Natural Language API: Qwik Start](https://www.cloudskillsboost.google/focuses/582?parent=catalog) | [tick]() | [you]() |
+| 8 | [Google Cloud Speech API: Qwik Start](https://www.cloudskillsboost.google/focuses/588?parent=catalog) | [tick]() | [you]() |
+| 9 | [Video Intelligence: Qwik Start](https://www.cloudskillsboost.google/focuses/603?parent=catalog) | [tick]() | [you]() |
+| 10 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab](https://www.cloudskillsboost.google/focuses/11044?parent=catalog) | [tick]() | [you]() |
