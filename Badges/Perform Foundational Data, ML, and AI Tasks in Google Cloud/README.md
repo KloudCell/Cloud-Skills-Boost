@@ -11,7 +11,7 @@
 <br>
 
 
-| S.No | Name | Script | Cheatsheet | Playlist |
+| S.No | Name | Script | Cheatsheet | Youtube |
 | :--: | :---: | :------: | :--------: | :------: |
 | 1 | [Vertex AI: Qwik Start](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) | [![tick][tick]]() | [tick]() | [you]() |
 | 2 | [Dataprep: Qwik Start](https://www.cloudskillsboost.google/focuses/584?parent=catalog) | [tick]() | [you]() |
