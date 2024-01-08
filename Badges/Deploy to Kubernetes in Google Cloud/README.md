@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/AO0Qs5CNQcda6X5UNd4kp%2BG8%2F9HHuxR%2FEC5K33Iwy9A%3D" alt="Deploy to Kubernetes in Google Cloud" title="Deploy to Kubernetes in Google Cloud" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/AO0Qs5CNQcda6X5UNd4kp%2BG8%2F9HHuxR%2FEC5K33Iwy9A%3D" alt="Deploy to Kubernetes in Google Cloud" title="Deploy to Kubernetes in Google Cloud" align="right" height="160" width="230"/>
 
 # Deploy to Kubernetes in Google Cloud
 
