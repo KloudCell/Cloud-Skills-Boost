@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/jNqGORbQQN%2BtmCx3jcwSjCIxwxZwgoEViDHGTRt2d4U%3D" alt="Manage Kubernetes in Google Cloud" title="Manage Kubernetes in Google Cloud" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/jNqGORbQQN%2BtmCx3jcwSjCIxwxZwgoEViDHGTRt2d4U%3D" alt="Manage Kubernetes in Google Cloud" title="Manage Kubernetes in Google Cloud" align="right" height="160" width="230"/>
 
 # Manage Kubernetes in Google Cloud
 

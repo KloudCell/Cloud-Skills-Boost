@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/GfiFidoAd%2BrgYQRFgZggxgzMWJsGgFxnfA6bOWScimw%3D" alt="Insights from Data with BigQuery" title="Insights from Data with BigQuery" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/GfiFidoAd%2BrgYQRFgZggxgzMWJsGgFxnfA6bOWScimw%3D" alt="Insights from Data with BigQuery" title="Insights from Data with BigQuery" align="right" height="160" width="230"/>
 
 # Insights from Data with BigQuery
 

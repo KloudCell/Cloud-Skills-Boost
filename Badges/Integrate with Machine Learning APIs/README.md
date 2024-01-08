@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/mrdhdN9pQPOP0nCqnLCAVHgDkhjblLdsuLHXtmU3Hc4%3D" alt="Integrate with Machine Learning APIs" title="Integrate with Machine Learning APIs" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/mrdhdN9pQPOP0nCqnLCAVHgDkhjblLdsuLHXtmU3Hc4%3D" alt="Integrate with Machine Learning APIs" title="Integrate with Machine Learning APIs" align="right" height="160" width="230"/>
 
 # Integrate with Machine Learning APIs
 

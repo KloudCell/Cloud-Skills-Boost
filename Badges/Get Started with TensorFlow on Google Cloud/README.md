@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/PezIDqsVyHsDYypUDq0hWPnF%2F4Lt0m2Nq0NHfXRCrR4%3D" alt="Get Started with TensorFlow on Google Cloud" title="Get Started with TensorFlow on Google Cloud" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/PezIDqsVyHsDYypUDq0hWPnF%2F4Lt0m2Nq0NHfXRCrR4%3D" alt="Get Started with TensorFlow on Google Cloud" title="Get Started with TensorFlow on Google Cloud" align="right" height="160" width="230"/>
 
 # Get Started with TensorFlow on Google Cloud
 

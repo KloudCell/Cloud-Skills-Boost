@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/R1UVr7XSOxJ4XpfbLuS6s1akY6qSc7zzHCDiQymGtog%3D" alt="Migrate MySQL data to Cloud SQL using Database Migration Service" title="Migrate MySQL data to Cloud SQL using Database Migration Service" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/R1UVr7XSOxJ4XpfbLuS6s1akY6qSc7zzHCDiQymGtog%3D" alt="Migrate MySQL data to Cloud SQL using Database Migration Service" title="Migrate MySQL data to Cloud SQL using Database Migration Service" align="right" height="160" width="230"/>
 
 # Migrate MySQL data to Cloud SQL using Database Migration Service
 

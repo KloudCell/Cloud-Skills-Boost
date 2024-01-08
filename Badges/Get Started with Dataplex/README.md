@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/fJqYOyjSuHcoDYoEyMfXZlGCK8wCIL2VQqA%2Bp5IW6zA%3D" alt="Get Started with Dataplex" title="Get Started with Dataplex" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/fJqYOyjSuHcoDYoEyMfXZlGCK8wCIL2VQqA%2Bp5IW6zA%3D" alt="Get Started with Dataplex" title="Get Started with Dataplex" align="right" height="160" width="230"/>
 
 # Get Started with Dataplex
 
