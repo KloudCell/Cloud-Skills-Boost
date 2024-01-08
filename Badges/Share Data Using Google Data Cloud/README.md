@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/g1AE7vnBOA6YLmx03%2FxeoOxkjAvG7ZE%2FU76PYsoWbTQ%3D" alt="Share Data Using Google Data Cloud" title="Share Data Using Google Data Cloud" align="right" height="180" width="250"/>
+### <img src="https://cdn.qwiklabs.com/g1AE7vnBOA6YLmx03%2FxeoOxkjAvG7ZE%2FU76PYsoWbTQ%3D" alt="Share Data Using Google Data Cloud" title="Share Data Using Google Data Cloud" align="right" height="160" width="230"/>
 
 # Share Data Using Google Data Cloud
 
