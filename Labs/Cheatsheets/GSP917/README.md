@@ -41,20 +41,22 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member=serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com \
     --role="roles/aiplatform.user"
 
-gcloud notebooks instances create instance \
+gcloud notebooks instances create kloudcell \
     --location=$ZONE \
     --vm-image-project=deeplearning-platform-release \
     --vm-image-family=tf2-ent-latest-cpu \
     --machine-type=e2-standard-2
+
+sleep 77
 ```
 
 **4. Clone the lab repository**
 
 - Click on the link generated from below cmd
 ```
-echo 'https://'$(gcloud notebooks instances describe cloudlearningservices --location=$ZONE --format="value(proxyUri)")'/lab
+echo 'https://'$(gcloud notebooks instances describe kloudcell --location=$ZONE --format="value(proxyUri)")'/lab'
 ```
--  Open Jupyter Terminal and paste the below link
+-  Open Terminal in JupyterLab and paste the below link
 
 ```
 git clone --depth=1 https://github.com/GoogleCloudPlatform/training-data-analyst
