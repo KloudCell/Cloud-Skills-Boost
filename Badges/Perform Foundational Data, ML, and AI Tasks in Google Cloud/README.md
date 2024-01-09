@@ -13,7 +13,7 @@
 
 | S.No | Name | Script | Cheatsheet | Youtube |
 | :--: | :---: | :------: | :--------: | :------: |
-| 1 | [Vertex AI: Qwik Start](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) | [![tick][tick]]() | [tick]() | [you]() |
+| 1 | [Vertex AI: Qwik Start](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP917/CHEATSHEET.md) | [you]() |
 | 2 | [Dataprep: Qwik Start](https://www.cloudskillsboost.google/focuses/584?parent=catalog) | [tick]() | [you]() |
 | 3 | [Dataflow: Qwik Start - Templates](https://www.cloudskillsboost.google/focuses/1101?parent=catalog) | [tick]() | [you]() |
 | 4 | [Dataflow: Qwik Start - Python](https://www.cloudskillsboost.google/focuses/1100?parent=catalog) | [tick]() | [you]() |
