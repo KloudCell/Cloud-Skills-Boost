@@ -61,3 +61,5 @@ echo 'https://'$(gcloud notebooks instances describe kloudcell --location=$ZONE 
 ```
 git clone --depth=1 https://github.com/GoogleCloudPlatform/training-data-analyst
 ```
+
+## Lab Completed🎉
