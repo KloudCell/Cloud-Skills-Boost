@@ -10,14 +10,12 @@ wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resourc
 source common_code.sh
 
 gcloud config set compute/region $REGION
+mkdir gcf_hello_world &&\
+cd gcf_hello_world
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/GSP080/index.js 2> /dev/null
 
 # Create a cloud storage bucket.
-if (gsutil mb -p $ID gs://$ID &&\
-
-mkdir gcf_hello_world
-cd gcf_hello_world
-
-wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/GSP080/index.js 2> /dev/null)
+if (gsutil mb -p $ID gs://$ID)
 
 then
     printf "\n\e[1;96m%s\n\n\e[m" 'Bucket Created: Checkpoint Completed (1/2)'
@@ -36,4 +34,3 @@ printf "\n\e[1;92m%s\n\n\e[m" 'Lab Completed'
 fi
 
 gcloud auth revoke --all
-
