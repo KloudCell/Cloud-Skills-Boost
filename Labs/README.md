@@ -24,3 +24,4 @@
 | GSP917 | [Vertex AI: Qwik Start](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP917/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP064 | [Cloud IAM: Qwik Start](https://www.cloudskillsboost.google/focuses/44159?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP064/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP064 | [Google Cloud Pub/Sub: Qwik Start - Console](https://www.cloudskillsboost.google/focuses/3719?parent=catalog) | [![tick][tick]](Scripts/GSP063) | [![tick][tick]](Cheatsheets/GSP064/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP080 | [Google Cloud Pub/Sub: Qwik Start - Console](https://www.cloudskillsboost.google/focuses/916?parent=catalog) | [![tick][tick]](Scripts/GSP080) | [![tick][tick]](Cheatsheets/GSP080/CHEATSHEET.md) | [![youtube][youtube]]() |
