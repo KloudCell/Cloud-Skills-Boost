@@ -151,6 +151,7 @@ def hello_world(request):
 EOF
 
 COLOR=yellow
+touch requirements.txt
 ```
 
 **5. Deploy different revisions**
