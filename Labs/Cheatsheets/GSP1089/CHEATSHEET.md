@@ -1,5 +1,6 @@
 # **To be done using Google Cloud Console and Shell**
 
+**1. Create a HTTP Function**
 ```
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
@@ -40,7 +41,7 @@ EOF
 
 sleep 90
 ```
-
+- Deploy function `nodejs-http-function`
 ```
 gcloud functions deploy nodejs-http-function \
   --gen2 \
@@ -53,7 +54,7 @@ gcloud functions deploy nodejs-http-function \
   --max-instances 1
 ```
 
-**1 wqe**
+**2. Create a Cloud Storage Function**
 
 ```
 SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
@@ -86,7 +87,7 @@ EOF
 BUCKET="gs://gcf-gen2-storage-$ID"
 gsutil mb -l $REGION $BUCKET
 ```
-
+- Deploy function `nodejs-storage-function`
 ```
 gcloud functions deploy nodejs-storage-function \
   --gen2 \
@@ -99,7 +100,7 @@ gcloud functions deploy nodejs-storage-function \
   --max-instances 1
 ```
 
-
+**3. Create a Cloud Audit Logs Function**
 - Go to IAM & Admin > Audit Logs from the link generated from below CMD
 
 ```
@@ -108,10 +109,7 @@ echo "https://console.cloud.google.com/iam-admin/audit?referrer=search&project=$
 
 - Find the Compute Engine API and click the check box next to it.
 
-- On the info pane on the right, check `Admin Read`, `Data Read`, and `Data Write` log types and click `Save`.
-
-
-
+- On the info panel on the right, check `Admin Read`, `Data Read`, and `Data Write` log types and click `Save`.
 
 ```
 gcloud projects add-iam-policy-binding $ID \
@@ -125,7 +123,7 @@ git clone https://github.com/GoogleCloudPlatform/eventarc-samples.git
 
 cd ~/eventarc-samples/gce-vm-labeler/gcf/nodejs
 ```
-
+- Deploy function `deploy gce-vm-labeler`
 ```
 gcloud functions deploy gce-vm-labeler \
   --gen2 \
@@ -138,12 +136,11 @@ gcloud functions deploy gce-vm-labeler \
   --max-instances 1
 ```
 
+**4. Create a VM Instance**
 ```
 gcloud compute instances create instance-1 --zone=$ZONE
 
-
 mkdir ~/hello-world-colored && cd $_
-touch main.py
 
 cat > main.py <<EOF
 import os
@@ -153,6 +150,11 @@ def hello_world(request):
 EOF
 
 COLOR=yellow
+```
+
+**5. Deploy different revisions**
+- Deploy function `hello-world-colored`
+```
 gcloud functions deploy hello-world-colored \
   --gen2 \
   --runtime python39 \
@@ -163,10 +165,11 @@ gcloud functions deploy hello-world-colored \
   --allow-unauthenticated \
   --update-env-vars COLOR=$COLOR \
   --max-instances 1
+```
 
-
+**6. Set up minimum instances**
+```
 mkdir ~/min-instances && cd $_
-touch main.go
 
 cat > main.go <<EOF
 package p
@@ -184,6 +187,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 EOF
 ```
 
+- Deploy function `slow-function`
 ```
 gcloud functions deploy slow-function \
   --gen2 \
@@ -197,6 +201,7 @@ gcloud functions deploy slow-function \
   --max-instances 4 
 ```
 
+**7. Create a function with concurrency**
 ```
 gcloud functions call slow-function \
   --gen2 --region $REGION
@@ -206,6 +211,7 @@ SLOW_URL=$(gcloud functions describe slow-function --region $REGION --gen2 --for
 hey -n 10 -c 10 $SLOW_URL
 ```
 
+- Deploy function `slow-concurrent-function`
 ```
 gcloud functions deploy slow-concurrent-function \
   --gen2 \
@@ -218,3 +224,5 @@ gcloud functions deploy slow-concurrent-function \
   --min-instances 1 \
   --max-instances 4
 ```
+
+## Lab Complete🎉
