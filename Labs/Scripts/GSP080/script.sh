@@ -12,12 +12,12 @@ source common_code.sh
 gcloud config set compute/region $REGION
 
 # Create a cloud storage bucket.
-if (gsutil mb -p $ID gs://$ID
+if (gsutil mb -p $ID gs://$ID &&\
 
 mkdir gcf_hello_world
 cd gcf_hello_world
 
-wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/index.js 2> /dev/null)
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Scripts/GSP080/index.js 2> /dev/null)
 
 then
     printf "\n\e[1;96m%s\n\n\e[m" 'Bucket Created: Checkpoint Completed (1/2)'
@@ -31,7 +31,7 @@ then
     then
         printf "\n\e[1;96m%s\n\n\e[m" 'Function Deployed: Checkpoint Completed (2/2)'
     fi
-    
+
 printf "\n\e[1;92m%s\n\n\e[m" 'Lab Completed'
 fi
 
