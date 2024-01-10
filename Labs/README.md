@@ -22,3 +22,4 @@
 | GSP063 | [Classify Text into Categories with the Natural Language API](https://www.cloudskillsboost.google/focuses/1749?parent=catalog) | [![tick][tick]](Scripts/GSP063) | [![tick][tick]](Cheatsheets/GSP063/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP294 | [Introduction to APIs in Google Cloud](https://www.cloudskillsboost.google/focuses/3473?parent=catalog) | [![tick][tick]](Scripts/GSP294) | [![tick][tick]](Cheatsheets/GSP294/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP917 | [Vertex AI: Qwik Start](https://www.cloudskillsboost.google/focuses/18940?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP917/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP064 | [Cloud IAM: Qwik Start](https://www.cloudskillsboost.google/focuses/44159?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP064/CHEATSHEET.md) | [![youtube][youtube]]() |
