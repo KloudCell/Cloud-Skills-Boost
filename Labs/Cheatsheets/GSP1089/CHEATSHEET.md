@@ -108,7 +108,7 @@ gcloud functions deploy nodejs-storage-function \
 echo "https://console.cloud.google.com/iam-admin/audit?referrer=search&project=$ID"
 ```
 
-- Find the Compute Engine API and click the check box next to it.
+- Find the `Compute Engine API` and click the check box next to it.
 
 - On the info panel on the right, check `Admin Read`, `Data Read`, and `Data Write` log types and click `Save`.
 
