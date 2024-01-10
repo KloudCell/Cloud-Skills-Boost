@@ -113,6 +113,7 @@ then
             fi
         fi
     fi
+printf "\n\e[1;92m%s\n\n\e[m" 'Lab Completed'
 fi
 
 gcloud auth revoke --all
