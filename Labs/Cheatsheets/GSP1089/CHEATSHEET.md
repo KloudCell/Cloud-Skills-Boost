@@ -100,7 +100,11 @@ gcloud functions deploy nodejs-storage-function \
 ```
 
 
-- From the Navigation Menu, go to IAM & Admin > Audit Logs
+- Go to IAM & Admin > Audit Logs from the link generated from below CMD
+
+```
+echo "https://console.cloud.google.com/iam-admin/audit?referrer=search&project=$ID"
+```
 
 - Find the Compute Engine API and click the check box next to it.
 
