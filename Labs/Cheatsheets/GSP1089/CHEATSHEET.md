@@ -39,23 +39,29 @@ cat > package.json <<EOF
 EOF
 
 sleep 90
-```
 
-```
-gcloud functions deploy nodejs-http-function \
-  --gen2 \
-  --runtime nodejs16 \
-  --entry-point helloWorld \
-  --source . \
-  --region $REGION \
-  --trigger-http \
-  --timeout 600s \
-  --max-instances 1
-```
+while true; do
+    OUTPUT=$(gcloud functions deploy nodejs-http-function \
+    --gen2 \
+    --runtime nodejs16 \
+    --entry-point helloWorld \
+    --source . \
+    --region $REGION \
+    --trigger-http \
+    --timeout 600s \
+    --max-instances 1 \
+    --quiet 2>&1)
+    
+    if echo "$OUTPUT" | grep -iq "error"; then
+        echo "An error occurred. Retrying..." && sleep 20
+    else
+        echo "Deployment successful."
+        break
+    fi
+done
 
-**1 wqe**
+##
 
-```
 SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
 gcloud projects add-iam-policy-binding $ID \
   --member serviceAccount:$SERVICE_ACCOUNT \
@@ -85,28 +91,40 @@ EOF
 
 BUCKET="gs://gcf-gen2-storage-$ID"
 gsutil mb -l $REGION $BUCKET
-```
+
+sleep 30
+
+while true; do
+    OUTPUT=$(gcloud functions deploy nodejs-storage-function \
+    --gen2 \
+    --runtime nodejs16 \
+    --entry-point helloStorage \
+    --source . \
+    --region $REGION \
+    --trigger-bucket $BUCKET \
+    --trigger-location $REGION \
+    --max-instances 1 \
+    --quiet 2>&1)
+    
+    if echo "$OUTPUT" | grep -iq "error"; then
+        echo "An error occurred. Retrying..." && sleep 30
+    else
+        echo "Deployment successful."
+        break
+    fi
+done
 
 ```
-gcloud functions deploy nodejs-storage-function \
-  --gen2 \
-  --runtime nodejs16 \
-  --entry-point helloStorage \
-  --source . \
-  --region $REGION \
-  --trigger-bucket $BUCKET \
-  --trigger-location $REGION \
-  --max-instances 1
+
+
+- Go to IAM & Admin > Audit Logs from the link genrated from below CMD
+
 ```
-
-
-- From the Navigation Menu, go to IAM & Admin > Audit Logs
-
+echo "https://console.cloud.google.com/iam-admin/audit?referrer=search&project=$ID"
+```
 - Find the Compute Engine API and click the check box next to it.
 
 - On the info pane on the right, check `Admin Read`, `Data Read`, and `Data Write` log types and click `Save`.
-
-
 
 
 ```
@@ -114,32 +132,34 @@ gcloud projects add-iam-policy-binding $ID \
   --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
   --role roles/eventarc.eventReceiver
 
-
 cd ~
 git clone https://github.com/GoogleCloudPlatform/eventarc-samples.git
 
-
 cd ~/eventarc-samples/gce-vm-labeler/gcf/nodejs
-```
 
-```
-gcloud functions deploy gce-vm-labeler \
-  --gen2 \
-  --runtime nodejs16 \
-  --entry-point labelVmCreation \
-  --source . \
-  --region $REGION \
-  --trigger-event-filters="type=google.cloud.audit.log.v1.written,serviceName=compute.googleapis.com,methodName=beta.compute.instances.insert" \
-  --trigger-location $REGION \
-  --max-instances 1
-```
+while true; do
+    OUTPUT=$(gcloud functions deploy gce-vm-labeler \
+    --gen2 \
+    --runtime nodejs16 \
+    --entry-point labelVmCreation \
+    --source . \
+    --region $REGION \
+    --trigger-event-filters="type=google.cloud.audit.log.v1.written,serviceName=compute.googleapis.com,methodName=beta.compute.instances.insert" \
+    --trigger-location $REGION \
+    --max-instances 1 \
+    --quiet 2>&1)
+    
+    if echo "$OUTPUT" | grep -iq "error"; then
+        echo "An error occurred. Retrying..."
+    else
+        echo "Deployment successful."
+        break
+    fi
+done
 
-```
 gcloud compute instances create instance-1 --zone=$ZONE
 
-
 mkdir ~/hello-world-colored && cd $_
-touch main.py
 
 cat > main.py <<EOF
 import os
@@ -149,20 +169,29 @@ def hello_world(request):
 EOF
 
 COLOR=yellow
-gcloud functions deploy hello-world-colored \
-  --gen2 \
-  --runtime python39 \
-  --entry-point hello_world \
-  --source . \
-  --region $REGION \
-  --trigger-http \
-  --allow-unauthenticated \
-  --update-env-vars COLOR=$COLOR \
-  --max-instances 1
 
+while true; do
+    OUTPUT=$(gcloud functions deploy hello-world-colored \
+    --gen2 \
+    --runtime python39 \
+    --entry-point hello_world \
+    --source . \
+    --region $REGION \
+    --trigger-http \
+    --allow-unauthenticated \
+    --update-env-vars COLOR=$COLOR \
+    --max-instances 1 \
+    --quiet 2>&1)
+    
+    if echo "$OUTPUT" | grep -iq "error"; then
+        echo "An error occurred. Retrying..."
+    else
+        echo "Deployment successful."
+        break
+    fi
+done
 
 mkdir ~/min-instances && cd $_
-touch main.go
 
 cat > main.go <<EOF
 package p
@@ -178,19 +207,28 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, "Slow HTTP Go in GCF 2nd gen!")
 }
 EOF
-```
 
-```
-gcloud functions deploy slow-function \
-  --gen2 \
-  --runtime go116 \
-  --entry-point HelloWorld \
-  --source . \
-  --region $REGION \
-  --trigger-http \
-  --allow-unauthenticated \
-  --min-instances 1 \
-  --max-instances 4 
+while true; do
+    OUTPUT=$(gcloud functions deploy slow-function \
+    --gen2 \
+    --runtime go116 \
+    --entry-point HelloWorld \
+    --source . \
+    --region $REGION \
+    --trigger-http \
+    --allow-unauthenticated \
+    --min-instances 1 \
+    --max-instances 4 \
+    --quiet 2>&1)
+    
+    if echo "$OUTPUT" | grep -iq "error"; then
+        echo "An error occurred. Retrying..."
+    else
+        echo "Deployment successful."
+        break
+    fi
+done
+
 ```
 
 ```
@@ -200,17 +238,25 @@ gcloud functions call slow-function \
 SLOW_URL=$(gcloud functions describe slow-function --region $REGION --gen2 --format="value(serviceConfig.uri)")
 
 hey -n 10 -c 10 $SLOW_URL
-```
 
-```
-gcloud functions deploy slow-concurrent-function \
-  --gen2 \
-  --runtime go116 \
-  --entry-point HelloWorld \
-  --source . \
-  --region $REGION \
-  --trigger-http \
-  --allow-unauthenticated \
-  --min-instances 1 \
-  --max-instances 4
+while true; do
+    OUTPUT=$(gcloud functions deploy slow-concurrent-function \
+    --gen2 \
+    --runtime go116 \
+    --entry-point HelloWorld \
+    --source . \
+    --region $REGION \
+    --trigger-http \
+    --allow-unauthenticated \
+    --min-instances 1 \
+    --max-instances 4 \
+    --quiet 2>&1)
+    
+    if echo "$OUTPUT" | grep -iq "error"; then
+        echo "An error occurred. Retrying..."
+    else
+        echo "Deployment successful."
+        break
+    fi
+done
 ```
