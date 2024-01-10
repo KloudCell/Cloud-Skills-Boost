@@ -26,7 +26,7 @@ then
     if (gcloud functions deploy helloWorld \
     --stage-bucket $ID \
     --trigger-topic hello_world \
-    --runtime nodejs8)
+    --runtime nodejs20)
 
     then
         printf "\n\e[1;96m%s\n\n\e[m" 'Function Deployed: Checkpoint Completed (2/2)'
