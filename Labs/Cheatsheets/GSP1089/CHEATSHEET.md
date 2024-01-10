@@ -51,7 +51,8 @@ gcloud functions deploy nodejs-http-function \
   --region $REGION \
   --trigger-http \
   --timeout 600s \
-  --max-instances 1
+  --max-instances 1 \
+  --quiet
 ```
 
 **2. Create a Cloud Storage Function**
