@@ -37,7 +37,7 @@ EOF
 gcloud functions deploy helloWorld \
   --stage-bucket $ID \
   --trigger-topic hello_world \
-  --runtime nodejs8
+  --runtime nodejs20
 
 gcloud functions describe helloWorld
 ```
