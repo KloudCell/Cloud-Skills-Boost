@@ -16,19 +16,19 @@ export ID=$(gcloud info --format='value(config.project)')-bucket
 
 gsutil mb gs://$ID
 
-wget -o donuts.png https://cdn.qwiklabs.com/V4PmEUI7yXdKpytLNRqwV%2ByGHqym%2BfhdktVi8nj4pPs%3D
+wget -O donuts.png https://cdn.qwiklabs.com/V4PmEUI7yXdKpytLNRqwV%2ByGHqym%2BfhdktVi8nj4pPs%3D 2> /dev/null
 
 gsutil cp donuts.png gs://$ID
 
 gsutil acl ch -u AllUsers:R gs://$ID/donuts.png
 
-wget -o selfie.png https://cdn.qwiklabs.com/5%2FxwpTRxehGuIRhCz3exglbWOzueKIPikyYj0Rx82L0%3D
+wget -O selfie.png https://cdn.qwiklabs.com/5%2FxwpTRxehGuIRhCz3exglbWOzueKIPikyYj0Rx82L0%3D 2> /dev/null
 
 gsutil cp selfie.png gs://$ID
 
 gsutil acl ch -u AllUsers:R gs://$ID/selfie.png
 
-wget -o city.png https://cdn.qwiklabs.com/9nhXkPugaX2KuBtzDMgr24M%2BiaqXaorWzzhFHZ0XzX8%3D
+wget -O city.png https://cdn.qwiklabs.com/9nhXkPugaX2KuBtzDMgr24M%2BiaqXaorWzzhFHZ0XzX8%3D 2> /dev/null
 
 gsutil cp city.png gs://$ID
 
