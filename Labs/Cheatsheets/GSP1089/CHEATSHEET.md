@@ -187,13 +187,14 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, "Slow HTTP Go in GCF 2nd gen!")
 }
 EOF
+go mod init example.com/mymodule
 ```
 
 - Deploy function `slow-function`
 ```
 gcloud functions deploy slow-function \
   --gen2 \
-  --runtime go116 \
+  --runtime go121 \
   --entry-point HelloWorld \
   --source . \
   --region $REGION \
@@ -201,23 +202,21 @@ gcloud functions deploy slow-function \
   --allow-unauthenticated \
   --min-instances 1 \
   --max-instances 4 
+
+gcloud run deploy slow-function \
+--image=$REGION-docker.pkg.dev/$ID/gcf-artifacts/slow--function:version_1 \
+--max-instances=4 \
+--region=$REGION \
+--project=$ID \
+ && gcloud run services update-traffic slow-function --to-latest --region=$REGION
 ```
 
 **7. Create a function with concurrency**
-```
-gcloud functions call slow-function \
-  --gen2 --region $REGION
-
-SLOW_URL=$(gcloud functions describe slow-function --region $REGION --gen2 --format="value(serviceConfig.uri)")
-
-hey -n 10 -c 10 $SLOW_URL
-```
-
 - Deploy function `slow-concurrent-function`
 ```
 gcloud functions deploy slow-concurrent-function \
   --gen2 \
-  --runtime go116 \
+  --runtime go121 \
   --entry-point HelloWorld \
   --source . \
   --region $REGION \
@@ -225,6 +224,17 @@ gcloud functions deploy slow-concurrent-function \
   --allow-unauthenticated \
   --min-instances 1 \
   --max-instances 4
+
+gcloud run services delete slow-function --region $REGION -q
+
+gcloud run deploy slow-concurrent-function \
+--image=$REGION-docker.pkg.dev/$ID/gcf-artifacts/slow--concurrent--function:version_1 \
+--concurrency=100 \
+--cpu=1 \
+--max-instances=4 \
+--region=$REGION \
+--project=$ID \
+ && gcloud run services update-traffic slow-concurrent-function --to-latest --region=$REGION
 ```
 
 ## Lab Complete🎉
