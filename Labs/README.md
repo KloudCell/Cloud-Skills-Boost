@@ -27,3 +27,4 @@
 | GSP080 | [Cloud Functions: Qwik Start - Command Line](https://www.cloudskillsboost.google/focuses/916?parent=catalog) | [![tick][tick]](Scripts/GSP080) | [![tick][tick]](Cheatsheets/GSP080/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP1089 | [Cloud Functions 2nd Gen: Qwik Start](https://www.cloudskillsboost.google/focuses/49757?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP1089/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP081 | [Cloud Functions: Qwik Start - Console](https://www.cloudskillsboost.google/focuses/1763?parent=catalog) | [![tick][tick]](Scripts/GSP081) | [![tick][tick]](Cheatsheets/GSP081/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP037 | [Detect Labels, Faces, and Landmarks in Images with the Cloud Vision API](https://www.cloudskillsboost.google/focuses/1841?parent=catalog) | [![tick][tick]](Scripts/GSP037) | [![tick][tick]](Cheatsheets/GSP037/CHEATSHEET.md) | [![youtube][youtube]]() |
