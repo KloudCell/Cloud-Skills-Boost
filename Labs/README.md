@@ -31,3 +31,4 @@
 | GSP1150 | [Generative AI with Vertex AI: Getting Started](https://www.cloudskillsboost.google/focuses/63250?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP1150/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP1151 | [Generative AI with Vertex AI: Prompt Design](https://www.cloudskillsboost.google/focuses/63251?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP1151/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP1200 | [Generative AI for Video Analytics with Vertex AI](https://www.cloudskillsboost.google/focuses/80140?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP1200/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP1155 | [Vertex AI PaLM API: Qwik Start](https://www.cloudskillsboost.google/focuses/71944?parent=catalog) | [![tick][tick]](Scripts/GSP1155) | [![tick][tick]](Cheatsheets/GSP1155/CHEATSHEET.md) | [![youtube][youtube]]() |
