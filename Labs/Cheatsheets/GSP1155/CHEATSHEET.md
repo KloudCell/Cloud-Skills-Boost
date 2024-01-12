@@ -1,4 +1,4 @@
-# To be done using Cloud Shell
+# To be done using Google Cloud Shell
 
 **1. Enable the Vertex AI API**
 

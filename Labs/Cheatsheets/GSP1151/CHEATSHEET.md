@@ -1,4 +1,4 @@
-# **To be done using Cloud Shell & Jupyter lab**
+# **To be done using Google Cloud Shell & Jupyter lab**
 
 - Run below cmd in Cloud Shell and click on the generated link to navigate to the Jupyter Lab
 
