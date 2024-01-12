@@ -9,9 +9,13 @@ wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resourc
 echo "https://$(gcloud notebooks instances describe generative-ai-jupyterlab --location=$ZONE --format="value(proxyUri)")/lab"
 ```
 
--
+- Open terminal in Jupyter Lab and run below cmds
 
 ```
+cd generative-ai/language/prompts
+
+wget -O intro_prompt_design.ipynb https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP1151/intro_prompt_design.ipynb
+
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 . common_code.sh
 
