@@ -10,6 +10,8 @@
     language.googleapis.com
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
     source common_code.sh
+    export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
+
 
     cat <<'EOF'> a.sh
     export API_KEY=YOUR_API_KEY

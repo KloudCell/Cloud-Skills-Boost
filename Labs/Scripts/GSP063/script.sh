@@ -10,6 +10,8 @@ wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resourc
 source common_code.sh
 
 # Enable the Cloud Natural Language API & Create an API key
+export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
+
 if (gcloud services enable \
   language.googleapis.com &&\
   sleep 30)

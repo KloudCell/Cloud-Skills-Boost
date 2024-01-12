@@ -1,6 +1,6 @@
 # **To be done using Cloud Shell & Jupyter lab**
 
-- Run below cmd in Cloud Shell and click the link generated to open the Jupyter Lab
+- Run below cmd in Cloud Shell and click on the generated link to navigate to the Jupyter Lab
 
 ```
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
@@ -12,9 +12,14 @@ echo "https://$(gcloud notebooks instances describe generative-ai-jupyterlab --l
 - In Jupyter Lab open the terminal and run below cmds
 
 ```
+wget -O youtube_analysis.ipynb https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP1200/youtube_analysis.ipynb 2> /dev/null
+
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 . common_code.sh
 
-wget
-
+echo "https://$(gcloud notebooks instances describe generative-ai-jupyterlab --location=$ZONE --format="value(proxyUri)")/lab/tree/youtube_analysis.ipynb"
 ```
+
+- Now click on the link to open `youtube_analysis.ipynb` & run all the cells
+
+## Lab Completed🎉

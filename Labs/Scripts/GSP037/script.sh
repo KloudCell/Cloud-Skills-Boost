@@ -18,6 +18,8 @@ wget -O city.png https://cdn.qwiklabs.com/9nhXkPugaX2KuBtzDMgr24M%2BiaqXaorWzzhF
 wget -O selfie.png https://cdn.qwiklabs.com/5%2FxwpTRxehGuIRhCz3exglbWOzueKIPikyYj0Rx82L0%3D 2> /dev/null
 
 # Create an API Key
+export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
+
 printf "\n\e[1;96m%s\n\n\e[m" 'API KEY Created: Checkpoint Completed (1/4)'
 
 # Upload an image to your bucket

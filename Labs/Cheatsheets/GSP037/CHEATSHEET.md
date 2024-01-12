@@ -9,8 +9,7 @@
 **4. Upload an image for Landmark Annotation to your bucket**
 
 ```
-
-gcloud beta services api-keys create --display-name="API key 1"
+export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
 export ID=$(gcloud info --format='value(config.project)')-bucket
 
