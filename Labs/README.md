@@ -33,3 +33,4 @@
 | GSP1200 | [Generative AI for Video Analytics with Vertex AI](https://www.cloudskillsboost.google/focuses/80140?parent=catalog) | [![cross][cross]]() | [![tick][tick]](Cheatsheets/GSP1200/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP1155 | [Vertex AI PaLM API: Qwik Start](https://www.cloudskillsboost.google/focuses/71944?parent=catalog) | [![tick][tick]](Scripts/GSP1155) | [![tick][tick]](Cheatsheets/GSP1155/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP1006 | [Managing Vault Tokens](https://www.cloudskillsboost.google/focuses/32201?parent=catalog) | [![tick][tick]](Scripts/GSP1006) | [![tick][tick]](Cheatsheets/GSP1006/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP1021 | [Validating Policies for Terraform on Google Cloud](https://www.cloudskillsboost.google/focuses/33968?parent=catalog) | [![tick][tick]](Scripts/GSP1021) | [![tick][tick]](Cheatsheets/GSP1021/CHEATSHEET.md) | [![youtube][youtube]]() |
