@@ -16,7 +16,7 @@ export BUCKET=$ID-bucket
 export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
 if [ -n "$API_KEY" ]; then
-    sleep 30 && printf "\n\e[1;96m%s\n\n\e[m" 'API KEY Created: Checkpoint Completed (1/3)'
+    sleep 7 && printf "\n\e[1;96m%s\n\n\e[m" 'API KEY Created: Checkpoint Completed (1/3)'
 fi
 
 # Get the ACL of the image
