@@ -173,6 +173,9 @@ gcloud functions deploy hello-world-colored \
 ```
 mkdir ~/min-instances && cd $_
 
+go mod init example.com/hello
+go mod tidy
+
 cat > main.go <<EOF
 package p
 import (
@@ -187,7 +190,6 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, "Slow HTTP Go in GCF 2nd gen!")
 }
 EOF
-go mod init example.com/mymodule
 ```
 
 - Deploy function `slow-function`
