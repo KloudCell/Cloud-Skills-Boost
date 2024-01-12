@@ -21,7 +21,6 @@ wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resourc
 
 echo -e "Link 1: \e[34mhttps://$(gcloud notebooks instances describe generative-ai-jupyterlab --location=$ZONE --format="value(proxyUri)")/lab/tree/generative-ai/language/prompts/intro_prompt_design.ipynb\e[0m\n"
 
-
 echo -e "Link 2: \e[34mhttps://$(gcloud notebooks instances describe generative-ai-jupyterlab --location=$ZONE --format="value(proxyUri)")/lab/tree/generative-ai/language/prompts/examples/question_answering.ipynb\e[0m"
 ```
 
