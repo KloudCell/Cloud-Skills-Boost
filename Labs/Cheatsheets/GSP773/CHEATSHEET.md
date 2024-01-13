@@ -92,8 +92,8 @@ echo -e "\033[38;5;208mUploading...\033[0m\033[?25l"
 
 chars="/-\|"
 
-end=$((SECONDS+120))
-symbol_end=$((SECONDS+120))
+end=$((SECONDS+72))
+symbol_end=$((SECONDS+72))
 
 while [ $SECONDS -lt $end ]; do
   for (( i=0; i<${#chars}; i++ )); do
