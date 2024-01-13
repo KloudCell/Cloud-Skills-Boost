@@ -36,3 +36,4 @@
 | GSP1021 | [Validating Policies for Terraform on Google Cloud](https://www.cloudskillsboost.google/focuses/33968?parent=catalog) | [![tick][tick]](Scripts/GSP1021) | [![tick][tick]](Cheatsheets/GSP1021/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP1143 | [Dataplex: Qwik Start - Console](https://www.cloudskillsboost.google/focuses/62709?parent=catalog) | [![tick][tick]](Scripts/GSP1143) | [![tick][tick]](Cheatsheets/GSP1143/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP095 | [Google Cloud Pub/Sub: Qwik Start - Command Line](https://www.cloudskillsboost.google/focuses/925?parent=catalog) | [![tick][tick]](Scripts/GSP095) | [![tick][tick]](Cheatsheets/GSP095/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP773 | [Eventarc for Cloud Run](https://www.cloudskillsboost.google/focuses/15657?parent=catalog) | [![tick][tick]]() | [![tick][tick]](Cheatsheets/GSP773/CHEATSHEET.md) | [![youtube][youtube]]() |

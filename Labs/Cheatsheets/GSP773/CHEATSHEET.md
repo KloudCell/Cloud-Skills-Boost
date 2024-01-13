@@ -1,5 +1,12 @@
 # **To be done using Google Cloud Console and Shell**
 
+**1. Enable Service Account.**
+
+**2. Create a Cloud Run sink.**
+
+**3. Create a Cloud Pub/Sub event trigger.**
+
+**4. Create a bucket.**
 ```
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
@@ -50,44 +57,61 @@ export BUCKET_NAME=$(gcloud config get-value project)-cr-bucket
 gsutil mb -p $(gcloud config get-value project) \
   -l $(gcloud config get-value run/region) \
   gs://${BUCKET_NAME}/
-```
-- Run below cmd and use the generated link to navigate to Audit Log
 
-```
 echo "https://console.cloud.google.com/iam-admin/audit?project=$ID"
 ```
-- Now, In the list of services, check the box for Google Cloud Storage
 
-- On the right hand side, click the LOG TYPE tab. Admin Write is selected by default, make sure you also select Admin Read, Data Read, Data Write and then click Save.
+- Click on the link generated from the last cmd & navigate to `Audit Log`
 
+- In Filter search `Google Cloud Storage` and check the box next to it.
+
+- Select `Admin Read`, `Data Read`, `Data Write` and Save it.
+
+**5. Create a Audit Logs event trigger.**
+```
 echo "Hello World" > random.txt
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
 
 gcloud beta eventarc attributes types describe google.cloud.audit.log.v1.written
 
-count=1
 
-for (( ; ; ))
-do
-   echo -e "This loop is running for the \033[38;5;48m$count time(s)\033[0m"
+gcloud beta eventarc triggers create trigger-auditlog \
+--destination-run-service=${SERVICE_NAME} \
+--matching-criteria="type=google.cloud.audit.log.v1.written" \
+--matching-criteria="serviceName=storage.googleapis.com" \
+--matching-criteria="methodName=storage.objects.create" \
+--service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
 
+sleep 12
 
-   gcloud beta eventarc triggers create trigger-auditlog \
-   --destination-run-service=${SERVICE_NAME} \
-   --matching-criteria="type=google.cloud.audit.log.v1.written" \
-   --matching-criteria="serviceName=storage.googleapis.com" \
-   --matching-criteria="methodName=storage.objects.create" \
-   --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
+gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
 
-   sleep 30
+cat <<'EOF'> ani.sh
+echo -e "\033[38;5;208mUploading...\033[0m\033[?25l"
 
-   gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
+chars="/-\|"
 
-   sleep 120
+end=$((SECONDS+120))
+symbol_end=$((SECONDS+120))
 
-   echo -e "\033[38;5;208mIf Trigger Testing Completed & you want to exit this loop, then press Ctrl + C\033[0m"
-
-   ((count++))
+while [ $SECONDS -lt $end ]; do
+  for (( i=0; i<${#chars}; i++ )); do
+    sleep 0.5
+    if [ $SECONDS -lt $symbol_end ]; then
+      echo -en "${chars:$i:1}" "\r"
+    fi
+    if [ $SECONDS -ge $end ]; then
+      break
+    fi
+  done
 done
 
+echo -e "\033[2K\033[38;5;82mUploaded\033[0m\033[?25h"
+EOF
+
+. ani.sh
+
+```
+
+## Lab Completed🎉
