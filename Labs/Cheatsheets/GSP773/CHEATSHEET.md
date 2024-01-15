@@ -7,6 +7,8 @@
 **3. Create a Cloud Pub/Sub event trigger.**
 
 **4. Create a bucket.**
+
+**5. Create a Audit Logs event trigger.**
 ```
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
@@ -58,17 +60,12 @@ gsutil mb -p $(gcloud config get-value project) \
   -l $(gcloud config get-value run/region) \
   gs://${BUCKET_NAME}/
 
-echo "https://console.cloud.google.com/iam-admin/audit?project=$ID"
-```
+gcloud projects get-iam-policy $ID > /tmp/policy.yaml
 
-- Click on the link generated from the last cmd & navigate to `Audit Log`
+echo -e "auditConfigs:\n- auditLogConfigs:\n  - logType: ADMIN_READ\n  - logType: DATA_READ\n  - logType: DATA_WRITE\n  service: storage.googleapis.com\n$(cat /tmp/policy.yaml)" > /tmp/temp_policy.yaml && mv /tmp/temp_policy.yaml /tmp/policy.yaml
 
-- In Filter search `Google Cloud Storage` and check the box next to it.
+gcloud projects set-iam-policy $ID /tmp/policy.yaml
 
-- Select `Admin Read`, `Data Read`, `Data Write` and Save it.
-
-**5. Create a Audit Logs event trigger.**
-```
 echo "Hello World" > random.txt
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
