@@ -6,6 +6,9 @@ wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resourc
 # Initialization
 gcloud init --skip-diagnostics
 
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/enable.sh 2> /dev/null
+. enable.sh
+
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
