@@ -41,6 +41,7 @@ then
         if (kubectl create deployment monolith --image=gcr.io/${ID}/monolith:1.0.0)
 
         then
+            sleep 7
             printf "\n\e[1;96m%s\n\n\e[m" 'Container Deployed: Checkpoint Completed (3/7)'
 
 # Expose GKE Deployment
@@ -70,7 +71,7 @@ then
                         printf "\n\e[1;96m%s\n\n\e[m" 'Website Changed: Checkpoint Completed (6/7)'
 
 # Update website with zero downtime
-                        if (kubectl set image deployment/monolith monolith=gcr.io/${ID}/monolith:2.0.0 &&\
+                        if (kubectl set image deployment/monolith monolith=gcr.io/${ID}/monolith:2.0.0
                         timeout 60 npm start)
 
                         then
