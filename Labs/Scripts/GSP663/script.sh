@@ -45,14 +45,13 @@ then
             printf "\n\e[1;96m%s\n\n\e[m" 'Container Deployed: Checkpoint Completed (3/7)'
 
 # Expose GKE Deployment
-            if (kubectl expose deployment monolith --type=LoadBalancer --port 80 --target-port 8080)
+            if (kubectl expose deployment monolith --type=LoadBalancer --port 80 --target-port 8080 && sleep 72)
 
             then
-                sleep 30
                 printf "\n\e[1;96m%s\n\n\e[m" 'Deployment Exposed: Checkpoint Completed (4/7)'
 
 # Scale GKE deployment
-                if (kubectl scale deployment monolith --replicas=3 && sleep 30)
+                if (kubectl scale deployment monolith --replicas=3 && sleep 45)
 
                 then
                     printf "\n\e[1;96m%s\n\n\e[m" 'Deployment Scaled: Checkpoint Completed (5/7)'
