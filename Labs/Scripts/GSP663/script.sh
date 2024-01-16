@@ -69,12 +69,13 @@ then
 
                     then
                         printf "\n\e[1;96m%s\n\n\e[m" 'Website Changed: Checkpoint Completed (6/7)'
+                        cd ~/monolith-to-microservices/monolith
 
 # Update website with zero downtime
-                        if (kubectl set image deployment/monolith monolith=gcr.io/${ID}/monolith:2.0.0
-                        timeout 60 npm start)
+                        if (kubectl set image deployment/monolith monolith=gcr.io/${ID}/monolith:2.0.0)
 
                         then
+                            timeout 45 npm start
                             printf "\n\e[1;96m%s\n\n\e[m" 'Website Updated: Checkpoint Completed (7/7)'
                         fi
                     fi
