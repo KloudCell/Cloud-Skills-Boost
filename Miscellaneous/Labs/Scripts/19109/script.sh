@@ -13,7 +13,7 @@ source common_code.sh
 if (gcloud beta container --project "$ID" clusters create "standard-cluster-1" --zone $ZONE)
 
 then
-    printf "\n\e[1;96m%s\n\n\e[m" 'GKE Cluster Deployed: Checkpoint Completed (1/3)'
+    sleep 33 && printf "\n\e[1;96m%s\n\n\e[m" 'GKE Cluster Deployed: Checkpoint Completed (1/3)'
 
 # Modify GKE clusters
     if (gcloud container clusters resize standard-cluster-1 --num-nodes=4 --zone $ZONE -q)
