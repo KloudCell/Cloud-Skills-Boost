@@ -10,6 +10,9 @@ cd ~/DIY-Tools/gcp-data-drive/cmd/webserver
 go build -mod=readonly -v -o gcp-data-drive
 ./gcp-data-drive
 ```
+
+- Don't run `2nd Terminal` commands until you see `Listening on port 8080` in `Terminal 1`
+
 **2. Check Cloud Shell application Deployment**
 
 - **2nd Terminal**

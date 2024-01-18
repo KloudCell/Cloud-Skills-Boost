@@ -2,6 +2,7 @@
 
 **Service Token**
 
+```
 cat <<'EOF'> token_policies.txt
 [
   "default",
@@ -12,5 +13,6 @@ EOF
 
 export ID=$(gcloud config get-value project)
 gsutil cp token_policies.txt gs://$ID
+```
 
 ## Lab Completed🎉
