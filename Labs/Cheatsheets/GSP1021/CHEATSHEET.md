@@ -2,6 +2,7 @@
 
 **Modify the constraint**
 
+```
 git clone https://github.com/GoogleCloudPlatform/policy-library.git
 
 cd policy-library/
@@ -74,5 +75,6 @@ terraform plan -out=test.tfplan
 gcloud beta terraform vet tfplan.json --policy-library=.
 
 terraform apply test.tfplan
+```
 
 ## Lab Completed🎉
