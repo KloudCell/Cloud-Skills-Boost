@@ -85,6 +85,7 @@ if (while true; do
   fi
 done)
 then
+    sleep 3
     printf "\n\e[1;96m%s\n\n\e[m" 'Function Deployed: Checkpoint Completed (1/2)'
 
 # Test the function
