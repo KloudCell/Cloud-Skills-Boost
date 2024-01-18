@@ -3,6 +3,9 @@
 **Modify the constraint**
 
 ```
+EMAIL=$(gcloud config get-value account)
+ID=$(gcloud config get-value project)
+
 git clone https://github.com/GoogleCloudPlatform/policy-library.git
 
 cd policy-library/
@@ -21,14 +24,17 @@ terraform {
 }
 
 resource "google_project_iam_binding" "sample_iam_binding" {
-  project = "$GOOGLE_CLOUD_PROJECT"
+  project = "<PROJECT>"
   role    = "roles/viewer"
 
   members = [
-    "user:$USER_EMAIL"
+    "user:<EMAIL>"
   ]
 }
 EOF
+
+sed -i "s/<PROJECT>/$ID/g" main.tf
+sed -i "s/<EMAIL>/$EMAIL/g" main.tf
 
 terraform init
 
