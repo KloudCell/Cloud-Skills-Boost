@@ -183,7 +183,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 }
 EOF
 
-cat << 'EOF' > mod.go
+cat << 'EOF' > go.mod
 module example.com/mod
 
 go 1.16
@@ -214,8 +214,6 @@ gcloud run deploy slow-function \
 **7. Create a function with concurrency**
 - Deploy function `slow-concurrent-function`
 ```
-sleep 15
-
 gcloud run services delete slow-function --region $REGION -q
 
 gcloud functions deploy slow-concurrent-function \
