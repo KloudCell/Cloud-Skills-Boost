@@ -183,11 +183,11 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 }
 EOF
 
-cat<<'EOF'>mod.go
+cat << 'EOF' > mod.go
 module example.com/mod
 
 go 1.16
-EOF 
+EOF
 ```
 
 - Deploy function `slow-function`
