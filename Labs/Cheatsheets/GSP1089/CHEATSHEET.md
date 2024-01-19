@@ -226,7 +226,20 @@ gcloud functions deploy slow-concurrent-function \
   --allow-unauthenticated \
   --min-instances 1 \
   --max-instances 4
+```
+- Run below cmd and navigate to the generated link
+```
+echo "https://console.cloud.google.com/run/detail/$REGION/slow-concurrent-function/revisions?cloudshell=true&project=$ID"
+```
+- Under the Resources section, set the CPU to `1`.
 
+- Under Requests, set the Maximum concurrent requests per instance to `100`.
+
+- Under Autoscaling, set the Maximum number of instances to `4`.
+
+- Leave the rest of the fields as default and click Deploy.
+<!--
+# Currently this code not giving green tick need to do this part manually
 gcloud run deploy slow-concurrent-function \
 --image=$REGION-docker.pkg.dev/$ID/gcf-artifacts/slow--concurrent--function:version_1 \
 --concurrency=100 \
@@ -235,6 +248,6 @@ gcloud run deploy slow-concurrent-function \
 --region=$REGION \
 --project=$ID \
  && gcloud run services update-traffic slow-concurrent-function --to-latest --region=$REGION
-```
+-->
 
 ## Lab Completed🎉
