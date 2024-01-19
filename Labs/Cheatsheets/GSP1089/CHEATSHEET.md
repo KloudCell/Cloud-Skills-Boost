@@ -38,8 +38,6 @@ cat > package.json <<EOF
   }
 }
 EOF
-
-sleep 90
 ```
 - Deploy function `nodejs-http-function`
 ```
