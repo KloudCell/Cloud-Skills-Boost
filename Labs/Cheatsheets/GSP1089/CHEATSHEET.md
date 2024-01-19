@@ -105,14 +105,12 @@ gcloud functions deploy nodejs-storage-function \
 - Go to IAM & Admin > Audit Logs from the link generated from below CMD
 
 ```
-echo "https://console.cloud.google.com/iam-admin/audit?referrer=search&project=$ID"
-```
+gcloud projects get-iam-policy $ID > /tmp/policy.yaml
 
-- Find the `Compute Engine API` and click the check box next to it.
+echo -e "auditConfigs:\n- auditLogConfigs:\n  - logType: ADMIN_READ\n  - logType: DATA_READ\n  - logType: DATA_WRITE\n  service: compute.googleapis.com\n$(cat /tmp/policy.yaml)" > /tmp/temp_policy.yaml && mv /tmp/temp_policy.yaml /tmp/policy.yaml
 
-- On the info panel on the right, check `Admin Read`, `Data Read`, and `Data Write` log types and click `Save`.
+gcloud projects set-iam-policy $ID /tmp/policy.yaml
 
-```
 gcloud projects add-iam-policy-binding $ID \
   --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
   --role roles/eventarc.eventReceiver
@@ -187,14 +185,19 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, "Slow HTTP Go in GCF 2nd gen!")
 }
 EOF
-go mod init example.com/mymodule
+
+cat<<'EOF'>mod.go
+module example.com/mod
+
+go 1.16
+EOF 
 ```
 
 - Deploy function `slow-function`
 ```
 gcloud functions deploy slow-function \
   --gen2 \
-  --runtime go121 \
+  --runtime go116 \
   --entry-point HelloWorld \
   --source . \
   --region $REGION \
@@ -214,9 +217,13 @@ gcloud run deploy slow-function \
 **7. Create a function with concurrency**
 - Deploy function `slow-concurrent-function`
 ```
+sleep 15
+
+gcloud run services delete slow-function --region $REGION -q
+
 gcloud functions deploy slow-concurrent-function \
   --gen2 \
-  --runtime go121 \
+  --runtime go116 \
   --entry-point HelloWorld \
   --source . \
   --region $REGION \
@@ -224,8 +231,6 @@ gcloud functions deploy slow-concurrent-function \
   --allow-unauthenticated \
   --min-instances 1 \
   --max-instances 4
-
-gcloud run services delete slow-function --region $REGION -q
 
 gcloud run deploy slow-concurrent-function \
 --image=$REGION-docker.pkg.dev/$ID/gcf-artifacts/slow--concurrent--function:version_1 \
