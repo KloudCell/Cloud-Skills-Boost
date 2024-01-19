@@ -100,7 +100,6 @@ gcloud functions deploy nodejs-storage-function \
 ```
 
 **3. Create a Cloud Audit Logs Function**
-- Go to IAM & Admin > Audit Logs from the link generated from below CMD
 
 ```
 gcloud projects get-iam-policy $ID > /tmp/policy.yaml
