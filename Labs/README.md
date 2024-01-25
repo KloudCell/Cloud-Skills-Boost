@@ -6,7 +6,7 @@
 
 | Identifier | Lab | Script | Cheatsheet | Video |
 | :--------: | --- | :----: | :--------: | :---: |
-| GSP282 | [A Tour of Google Cloud Hands-on Labs](https://www.cloudskillsboost.google/focuses/2794?parent=catalog) | [![tick][tick]](Scripts/GSP282) | [![tick][tick]](Cheatsheets/GSP282/CHEATSHEET.md) | [![youtube][youtube]]() |
+| GSP282 | [A Tour of Google Cloud Hands-on Labs](https://www.cloudskillsboost.google/focuses/2794?parent=catalog) | [![tick][tick]](Scripts/GSP282) | [![tick][tick]](Cheatsheets/GSP282/CHEATSHEET.md) | <picture> <source media="(prefers-color-scheme: dark)" srcset="../assets/yt_logo_rgb_dark.png"> <source media="(prefers-color-scheme: light)" srcset="../assets/yt.png"> <img alt="YouTube logo" src="../assets/yt.png"></picture> |
 | GSP421 | [APIs Explorer: Cloud Storage](https://www.cloudskillsboost.google/focuses/3632?parent=catalog) | [![tick][tick]](Scripts/GSP421) | [![tick][tick]](Cheatsheets/GSP421/CHEATSHEET.md) | [![youtube][youtube]]() |
 | GSP277 | [APIs Explorer: Qwik Start](https://www.cloudskillsboost.google/focuses/2457?parent=catalog) | [![tick][tick]](Scripts/GSP277) | [![tick][tick]](Cheatsheets/GSP277/CHEATSHEET.md) | [![youtube][youtube]]() |
 | ARC122 | [Analyze Images with the Cloud Vision API: Challenge Lab](https://www.cloudskillsboost.google/focuses/64748?parent=catalog) | [![tick][tick]](Scripts/ARC122) | [![tick][tick]](Cheatsheets/ARC122/CHEATSHEET.md) | [![youtube][youtube]]() |
