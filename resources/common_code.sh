@@ -8,7 +8,7 @@ export SERVICE=$(gcloud compute project-info describe --project $ID --format="va
 
 export REGION=${ZONE::-2}
 
-export PROJECT_NUMBER=$(gcloud projects list --filter="qwiklabs-gcp" --format='value(PROJECT_NUMBER)')
+PROJECT_NUMBER=$(gcloud projects list --filter="project_id:$ID" --format='value(project_number)')
 
 #export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
