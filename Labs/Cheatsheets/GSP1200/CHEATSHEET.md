@@ -12,6 +12,15 @@ echo "https://$(gcloud notebooks instances describe generative-ai-jupyterlab --l
 - In Jupyter Lab open the terminal and run below cmds
 
 ```
+pip install protobuf==3.20.*
+
+cat<< 'EOF' > restart.py
+import os
+os._exit(00)
+EOF
+
+python restart.py
+
 wget -O youtube_analysis.ipynb https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP1200/youtube_analysis.ipynb 2> /dev/null
 
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
