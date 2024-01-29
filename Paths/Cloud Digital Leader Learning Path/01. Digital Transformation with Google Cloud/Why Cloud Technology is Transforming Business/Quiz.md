@@ -1,4 +1,3 @@
-[tick]: /assets/tick.jpg
 ## Quiz
 
 1. **What is the cloud?**
