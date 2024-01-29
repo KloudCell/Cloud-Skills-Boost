@@ -2,8 +2,8 @@
 
 ## Skill Badges
 
-| S.No | Badge | Solution | Playlist |
-| :--: | :---: | :------: | :------: |
+| S.No | Badge | Lab | Playlist |
+| :--: | :---: | :-: | :------: |
 | 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [7/7](Perform%20Foundational%20Data,%20ML,%20and%20AI%20Tasks%20in%20Google%20Cloud/README.md) | <a href=""> <picture> <source media="(prefers-color-scheme: dark)" srcset="../assets/yt-dark.png"> <source media="(prefers-color-scheme: light)" srcset="../assets/yt-light.png"> <img alt="YouTube logo" src="../assets/yt-dark.png"></picture> </a> |
 | 2 | [Deploy to Kubernetes in Google Cloud](https://www.cloudskillsboost.google/course_templates/663) | [4/4](Deploy%20to%20Kubernetes%20in%20Google%20Cloud/README.md) | <a href=""> <picture> <source media="(prefers-color-scheme: dark)" srcset="../assets/yt-dark.png"> <source media="(prefers-color-scheme: light)" srcset="../assets/yt-light.png"> <img alt="YouTube logo" src="../assets/yt-dark.png"></picture> </a> |
 | 3 | [Manage Kubernetes in Google Cloud](https://www.cloudskillsboost.google/course_templates/783) | [4/4](Manage%20Kubernetes%20in%20Google%20Cloud/README.md) | <a href=""> <picture> <source media="(prefers-color-scheme: dark)" srcset="../assets/yt-dark.png"> <source media="(prefers-color-scheme: light)" srcset="../assets/yt-light.png"> <img alt="YouTube logo" src="../assets/yt-dark.png"></picture> </a> |
@@ -18,6 +18,6 @@
 
 ## Completion Badges
 
-| S.No | Badge | Solution | Playlist |
-| :--: | :---: | :------: | :------: |
-| 1 | [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://www.cloudskillsboost.google/course_templates/631) | [tick]() | <a href=""> <picture> <source media="(prefers-color-scheme: dark)" srcset="../assets/yt-dark.png"> <source media="(prefers-color-scheme: light)" srcset="../assets/yt-light.png"> <img alt="YouTube logo" src="../assets/yt-dark.png"></picture> </a> |
+| S.No | Badge | Quiz | Lab | Playlist |
+| :--: | :---: | :--: | :-: | :------: |
+| 1 | [Digital Transformation with Google Cloud](https://www.cloudskillsboost.google/course_templates/266) | [3/3](Digital%20Transformation%20with%20Google%20Cloud/README.md) | - | <a href=""> <picture> <source media="(prefers-color-scheme: dark)" srcset="../assets/yt-dark.png"> <source media="(prefers-color-scheme: light)" srcset="../assets/yt-light.png"> <img alt="YouTube logo" src="../assets/yt-dark.png"></picture> </a> |
