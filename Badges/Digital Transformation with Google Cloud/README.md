@@ -2,7 +2,7 @@
 [cross]: /assets/cross.jpg
 [tick]: /assets/tick.jpg
 
-### <img src="https://cdn.qwiklabs.com/zHJ6I2AoJzjN%2BmBF3vOVdfyXzQrcNPC29utSr7Tkwrc%3D" alt="Digital Transformation with Google Cloud" title="Digital Transformation with Google Cloud" align="right" height="160" width="230"/>
+### <img src="https://cdn.qwiklabs.com/zHJ6I2AoJzjN%2BmBF3vOVdfyXzQrcNPC29utSr7Tkwrc%3D" alt="Digital Transformation with Google Cloud" title="Digital Transformation with Google Cloud" align="right" height="140" width="200"/>
 
 ## Digital Transformation with Google Cloud
 
