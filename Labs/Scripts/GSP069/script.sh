@@ -24,7 +24,7 @@ echo "Y" > a
 
 gcloud app create --region=$REGION1
 
-# Deploy a PHP App
+# Deploy PHP App
 if (gcloud app deploy < a)
 
 then

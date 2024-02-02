@@ -1,6 +1,6 @@
 # **To be execute in Google Cloud Shell**
 
-**1. Deploy a PHP App**
+**1. Deploy PHP App**
 
     wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
     source common_code.sh

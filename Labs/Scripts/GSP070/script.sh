@@ -26,7 +26,7 @@ sudo apt-get install google-cloud-sdk-app-engine-go
 
 gcloud app create --region=$REGION1
 
-# Deploy a Go App
+# Deploy Go App
 if (gcloud app deploy < a)
 
 then
