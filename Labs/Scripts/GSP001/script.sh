@@ -21,6 +21,8 @@ if (gcloud compute instances create gcelab \
 
 gcloud compute firewall-rules create allow-http --network=default --allow=tcp:80 --target-tags=allow-http
 
+sleep 10
+
 gcloud compute ssh --zone "$ZONE" "gcelab" --project "$ID" --quiet --command "sudo apt-get update && sudo apt-get install -y nginx && ps auwx | grep nginx")
 
 then
