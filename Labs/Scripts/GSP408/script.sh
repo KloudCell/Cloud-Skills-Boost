@@ -13,7 +13,7 @@ if (bq query --nouse_legacy_sql \
 COUNT(DISTINCT fullVisitorId) AS visitor_count
 , hits_page_pageTitle
 FROM `data-to-insights.ecommerce.rev_transactions`
-GROUP BY hits_page_pageTitle' \&&
+GROUP BY hits_page_pageTitle' 
 
 bq query --nouse_legacy_sql \
 'SELECT
@@ -35,7 +35,7 @@ then
     COUNT( DISTINCT fullVisitorId) AS distinct_visitors
     FROM
     `data-to-insights.ecommerce.rev_transactions`
-    GROUP BY geoNetwork_city' \&&
+    GROUP BY geoNetwork_city' 
 
     bq query --nouse_legacy_sql \
     'SELECT
@@ -45,7 +45,7 @@ then
     FROM
     `data-to-insights.ecommerce.rev_transactions`
     GROUP BY geoNetwork_city
-    ORDER BY distinct_visitors DESC' \&&
+    ORDER BY distinct_visitors DESC' 
 
     bq query --nouse_legacy_sql \
     'SELECT
@@ -56,7 +56,7 @@ then
     FROM
     `data-to-insights.ecommerce.rev_transactions`
     GROUP BY geoNetwork_city
-    ORDER BY avg_products_ordered DESC' \&&
+    ORDER BY avg_products_ordered DESC' 
 
     bq query --nouse_legacy_sql \
     'SELECT
