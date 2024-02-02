@@ -6,9 +6,6 @@ wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resourc
 # Initialization
 gcloud init --skip-diagnostics
 
-wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
-source common_code.sh
-
 # Find the total number of customers went through checkout
 
 if (bq query --nouse_legacy_sql \
