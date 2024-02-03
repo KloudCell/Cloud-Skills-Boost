@@ -3,6 +3,9 @@
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/welcome.sh 2> /dev/null
 . welcome.sh
 
+# Initialization
+gcloud init --skip-diagnostics
+
 # Minimize I/O
 
 if (bq query --nouse_legacy_sql \
