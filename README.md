@@ -14,7 +14,7 @@
 
 - **Donate Us**
 
-[![pay][pay]](paypal.me/blackgoku007)
+[![pay][pay]](https://paypal.me/blackgoku007)
 
 [BSD3]:   https://img.shields.io/badge/License-BSD_3--Clause-orange.svg
 [cheat]:  https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/KloudCell/44aeab7ee88202f9de432b2f79d598ee/raw
