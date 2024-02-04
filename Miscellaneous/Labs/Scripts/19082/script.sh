@@ -9,6 +9,9 @@ gcloud init --skip-diagnostics
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 . common_code.sh
 
+echo -e "\033[33mPaste 'Username 2' here:\033[0m \c"
+read USER_2
+
 # Create a bucket and upload a sample file
 
 if (gsutil mb -l us gs://$ID
@@ -22,9 +25,7 @@ then
 
 # Remove project access
 
-    if (read -p "Username 2:" USER_2
-
-    gcloud projects remove-iam-policy-binding $ID --member=user:$USER_2 --role=roles/viewer)
+    if (gcloud projects remove-iam-policy-binding $ID --member=user:$USER_2 --role=roles/viewer)
 
     then
         printf "\n\e[1;96m%s\n\n\e[m" 'Access Removed: Checkpoint Completed (2/4)'

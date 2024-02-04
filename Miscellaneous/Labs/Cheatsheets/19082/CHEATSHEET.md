@@ -18,7 +18,8 @@ touch sample.txt
 
 gsutil cp sample.txt gs://$ID
 
-read -p "Username 2:" USER_2
+echo -e "\033[33mPaste 'Username 2' here:\033[0m \c"
+read USER_2
 
 gcloud projects remove-iam-policy-binding $ID --member=user:$USER_2 --role=roles/viewer
 
