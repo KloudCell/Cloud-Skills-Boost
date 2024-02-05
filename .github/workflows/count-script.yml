@@ -21,7 +21,7 @@ jobs:
 
         # Count the number of directories
         dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
-        dir_count=$((dir_count + 6))
+        dir_count=$((dir_count + 7))
 
         # Print the number of directories
         echo "Number of directories: $dir_count"
