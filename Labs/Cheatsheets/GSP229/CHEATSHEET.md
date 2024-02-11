@@ -193,7 +193,6 @@ echo "https://console.cloud.google.com/bigquery?referrer=search&project=$GOOGLE_
 ```
 - Paste the below Query in Bigquery Editor and run it
 ```
-#standardSQL
 SELECT
   roc_auc,
   CASE
@@ -252,6 +251,7 @@ SELECT * EXCEPT(unique_session_id) FROM (
 ));
 ```
 **6. Predict which new visitors will come back and purchase**
+- Return to  Cloud Shell and run below CMD in it
 ```
 bq query --use_legacy_sql=false \
 'SELECT
