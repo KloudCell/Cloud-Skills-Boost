@@ -16,7 +16,7 @@ gsutil cp gs://spls/gsp223/data.csv .
 sed -i -e "s/placeholder/${BUCKET}/g" ./data.csv
 gsutil cp ./data.csv gs://${BUCKET}
 
-echo -e "\n\e[31mNavigate to this link to create dataset:\e[0m"
+echo -e "\n\e[33mNavigate to below link to create dataset:\e[0m"
 echo -e "\nhttps://console.cloud.google.com/vertex-ai/datasets/create?project=$ID\n"
 ```
 
@@ -25,7 +25,7 @@ echo -e "\nhttps://console.cloud.google.com/vertex-ai/datasets/create?project=$I
 clouds
 ```
 - Select `Image classification (Single-label)`
-- Click Create
+- Click `Create`
 - Choose `Select import files from Cloud Storage` 
 - Now run below CMD in `Cloud Shell` 
 ```

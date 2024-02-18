@@ -80,7 +80,48 @@ gcloud beta eventarc triggers create trigger-auditlog \
 --matching-criteria="methodName=storage.objects.create" \
 --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
 
-sleep 12
+while true; do
+    # Describe the trigger
+    TRIGGER=$(gcloud eventarc triggers describe trigger-auditlog 2>&1)
+
+    # If the trigger exists, break the loop
+    if [ $? -eq 0 ]; then
+        echo "Trigger 'trigger-auditlog' exists."
+        break
+    fi
+
+    # If the trigger doesn't exist, create it
+    echo "Trigger 'trigger-auditlog' does not exist. Creating..."
+    gcloud beta eventarc triggers create trigger-auditlog \
+    --destination-run-service=${SERVICE_NAME} \
+    --matching-criteria="type=google.cloud.audit.log.v1.written" \
+    --matching-criteria="serviceName=storage.googleapis.com" \
+    --matching-criteria="methodName=storage.objects.create" \
+    --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com
+
+    # Wait for a while before the next check
+    sleep 10
+done
+
+# Loop until the trigger is active
+while true; do
+    # Run the command and save the output
+    OUTPUT=$(gcloud eventarc triggers list)
+
+    # Parse the output for trigger-auditlog
+    TRIGGER_INFO=$(echo "$OUTPUT" | awk '/trigger-auditlog/,/LOCATION/')
+
+    # Check if the trigger is active
+    if echo "$TRIGGER_INFO" | grep -q "ACTIVE: Yes"; then
+        echo "Trigger 'trigger-auditlog' is active now. Uploading files to the Bucket now"
+        break
+    else
+        echo "Trigger 'trigger-auditlog' is not active yet."
+    fi
+
+    # Wait for a while before the next check
+    sleep 101
+done
 
 gsutil cp random.txt gs://${BUCKET_NAME}/random.txt
 
@@ -89,8 +130,8 @@ echo -e "\033[38;5;208mUploading...\033[0m\033[?25l"
 
 chars="/-\|"
 
-end=$((SECONDS+72))
-symbol_end=$((SECONDS+72))
+end=$((SECONDS+12))
+symbol_end=$((SECONDS+12))
 
 while [ $SECONDS -lt $end ]; do
   for (( i=0; i<${#chars}; i++ )); do
