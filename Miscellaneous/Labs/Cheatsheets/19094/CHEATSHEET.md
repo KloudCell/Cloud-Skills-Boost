@@ -5,7 +5,7 @@
 - Run below cmd & navigate to `Cloud Storage` and create a `Bucket`
 
 ```
-echo "https://console.cloud.google.com/storage/create-bucket?project=$ID"
+echo "https://console.cloud.google.com/storage/create-bucket?project=$GOOGLE_CLOUD_PROJECT"
 ```
 
 **2. Create a bucket using Cloud Shell**
@@ -13,9 +13,9 @@ echo "https://console.cloud.google.com/storage/create-bucket?project=$ID"
 **3. Upload a file to Storage bucket**
 
 ```
-gsutil mb gs://$ID
+gsutil mb gs://$GOOGLE_CLOUD_PROJECT
 touch kloudcell.txt
-gsutil cp kloudcell.txt gs://$ID
+gsutil cp kloudcell.txt gs://$GOOGLE_CLOUD_PROJECT
 ```
 
 ## Lab Completed🎉
