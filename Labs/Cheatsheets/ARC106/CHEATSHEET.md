@@ -25,7 +25,7 @@ export TOPIC_NAME=
 export JOB_NAME=
 ```
 
-```
+```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
@@ -43,13 +43,31 @@ gcloud pubsub topics create $TOPIC_NAME
 
 gcloud pubsub subscriptions create $SUB --topic=$TOPIC_NAME
 
-gcloud dataflow flex-template run $JOB_NAME \
---template-file-gcs-location gs://dataflow-templates-$REGION/latest/flex/PubSub_to_BigQuery_Flex \
---region $REGION --num-workers 2 \
+gcloud dataflow jobs run $JOB_NAME \
+--gcs-location gs://dataflow-templates-$REGION/latest/PubSub_to_BigQuery \
+--region $REGION \
 --staging-location gs://$ID/temp \
---parameters \
-outputTableSpec=$ID:$DATASET_NAME.$TABLE_NAME,\
-inputTopic=projects/$ID/topics/$TOPIC_NAME
+--parameters inputTopic=projects/$ID/topics/$TOPIC_NAME,outputTableSpec=$ID:$DATASET_NAME.$TABLE_NAME
+
+while true; do
+    STATE=$(gcloud dataflow jobs list --filter="name=$JOB_NAME" --region $REGION --format="get(state)" | head -n 1)
+    if [ "$STATE" == "Pending" ]; then
+        echo "Job is in Pending State. Wait till it is running..."
+    elif [ "$STATE" == "Failed" ]; then
+        echo "Job failed. Retrying..."
+        gcloud dataflow jobs run $JOB_NAME \
+            --gcs-location gs://dataflow-templates-$REGION/latest/PubSub_to_BigQuery \
+            --region $REGION \
+            --staging-location gs://$ID/temp \
+            --parameters inputTopic=projects/$ID/topics/$TOPIC_NAME,outputTableSpec=$ID:$DATASET_NAME.$TABLE_NAME
+    else
+        echo "Job completed successfully."
+        break
+    fi
+    sleep 10
+done
+
+
 
 gcloud pubsub topics publish $TOPIC_NAME --message='{"data": "73.4 F"}'
 
