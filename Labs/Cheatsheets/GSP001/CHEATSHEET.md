@@ -4,7 +4,7 @@
 
 **2. Create a new instance with gcloud.**
 
-```
+```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
@@ -17,6 +17,8 @@ gcloud compute instances create gcelab \
 --image-project=debian-cloud
 
 gcloud compute firewall-rules create allow-http --network=default --allow=tcp:80 --target-tags=allow-http
+
+sleep 42
 
 gcloud compute ssh --zone "$ZONE" "gcelab" --project "$ID" --quiet --command "sudo apt-get update && sudo apt-get install -y nginx && ps auwx | grep nginx"
 
