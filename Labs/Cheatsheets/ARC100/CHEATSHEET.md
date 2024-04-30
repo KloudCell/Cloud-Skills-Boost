@@ -34,7 +34,7 @@ gcloud projects add-iam-policy-binding $ID \
 
 gsutil mb  -l $REGION gs://$BUCKET
 
-gcloud pubsub topics create $TOPIC
+gcloud pubsub topics create $TOPIC_NAME
 
 cat <<'EOF'> index.js
 const functions = require('@google-cloud/functions-framework');
@@ -132,12 +132,12 @@ cat <<'EOF'> package.json
 }
 EOF
 
-gcloud functions deploy $FUNCTION \
+gcloud functions deploy $FUNCTION_NAME \
 --gen2 \
 --runtime=nodejs20 \
 --region=$REGION \
 --source=. \
---entry-point=$FUNCTION \
+--entry-point=$FUNCTION_NAME \
 --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
 --trigger-event-filters="bucket=$BUCKET"
 
