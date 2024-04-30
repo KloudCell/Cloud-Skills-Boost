@@ -16,7 +16,7 @@ gcloud services enable \
 
 gcloud config set compute/region $REGION
 
-gsutil mb -c standard -l $REGION gs://$$ID
+gsutil mb -c standard -l $REGION gs://$ID
 
 gcloud dataplex lakes create customer-engagements \
    --location=$REGION \
@@ -38,7 +38,7 @@ gcloud dataplex assets create raw-event-files \
 --zone=raw-event-data \
 --display-name="Raw Event Files" \
 --resource-type=STORAGE_BUCKET \
---resource-name=projects/$$ID/buckets/$$ID \
+--resource-name=projects/$ID/buckets/$ID \
 --discovery-enabled 
 
 gcloud data-catalog tag-templates create protected_raw_data_flag \
