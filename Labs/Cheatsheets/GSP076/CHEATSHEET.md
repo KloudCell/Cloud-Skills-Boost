@@ -101,7 +101,7 @@ MODEL_BINARIES=$OUTPUT_PATH/keras_export/
 
 gcloud config set ai_platform/region global
 
-    gcloud ai-platform versions create v1 \
+gcloud ai-platform versions create v1 \
         --model $MODEL_NAME \
         --origin $MODEL_BINARIES \
         --runtime-version 2.1 \
