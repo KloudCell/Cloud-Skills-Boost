@@ -27,7 +27,14 @@ jobs:
 
         # Count the number of directories
         dir_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
-        dir_count=$((dir_count + 20))
+        
+        cd ../GenAI
+        genai_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
+
+        cd ../Miscellaneous
+        misc_count=$(find . -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | wc -l)
+
+        dir_count=$((dir_count + genai_count + misc_count))
         
         # Print the number of directories
         echo "Number of directories: $dir_count"
