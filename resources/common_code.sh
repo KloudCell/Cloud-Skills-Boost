@@ -8,11 +8,11 @@ export SERVICE=$(gcloud compute project-info describe --project $ID --format="va
 
 export REGION=${ZONE::-2}
 
-export PROJECT_NUMBER=$(gcloud projects list --filter="project_id:$ID" --format='value(project_number)')
+export PROJECT_NUMBER=$(gcloud projects describe $ID --format="value(projectNumber)")
 
 export QWIKLABS_SERVICE=$(gcloud iam service-accounts list --filter="displayName:Qwiklabs" --format="value(email)")
 
-export USER_NAME=$(gcloud info --format='value(config.account)')
+export USER_NAME=$(gcloud compute project-info describe --project $ID --format="value(commonInstanceMetadata.items.ssh-keys)" | awk -F ' ' '{print $NF}')
 
 #export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
