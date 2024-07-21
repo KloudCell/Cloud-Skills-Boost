@@ -57,12 +57,20 @@ form_2() {
 
     cd nodejs-docs-samples/functions/v2/helloPubSub/
 
+    fun_2() {
     gcloud functions deploy gcf-pubsub \
     --runtime=nodejs20 \
     --region=$REGION \
     --source=. \
     --entry-point=helloPubSub \
     --trigger-topic=gcf-topic
+    }
+
+    while ! fun_2 ; do
+    echo "Function Deployment encountered an error will try again after few seconds...";
+    sleep 7
+    done
+
 }
 
 form_3() {
@@ -93,4 +101,5 @@ case $form_num in
     *) echo "Invalid form number. Please enter 1, 2, or 3." ;;
 esac
 ```
+
 ## Lab Completed🎉

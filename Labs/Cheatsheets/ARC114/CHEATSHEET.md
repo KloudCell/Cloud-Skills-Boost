@@ -11,11 +11,10 @@
 - Go to [API & Services](https://console.cloud.google.com/apis/credentials?cloudshell=true) to create your `API Key`
 
 ```bash
-export ID=$(gcloud info --format='value(config.project)')-bucket
 ZONE=$(gcloud compute instances list --filter="name=lab-vm" --format "get(zone)" | awk -F/ '{print $NF}')
 export API_KEY=$(gcloud beta services api-keys create --display-name='kloudcell' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
-cat > a.sh << ENDOF
+cat > script.sh << ENDOF
 #!/bin/bash
 
 cat > nl_request.json <<EOF
@@ -46,7 +45,6 @@ EOF
 curl -s -X POST -H "Content-Type: application/json" --data-binary @speech_request.json \
 "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > speech_response.json
 
-
 cat > sentiment_analysis.py <<EOF
 import argparse
 
@@ -66,7 +64,6 @@ def print_result(annotations):
         f"Overall Sentiment: score of {score} with magnitude of {magnitude}"
     )
     return 0
-
 
 def analyze(movie_review_filename):
     """Run a sentiment analysis request on text within a passed filename."""
@@ -105,6 +102,7 @@ tar -xvf sentiment-samples.tar
 python3 sentiment_analysis.py reviews/bladerunner-pos.txt
 ENDOF
 
-gcloud compute ssh --zone "$ZONE" "lab-vm" --project "$ID" -q --command "bash -s" < a.sh
+gcloud compute ssh --zone "$ZONE" "lab-vm" --command "bash -s" < script.sh -q
 ```
+
 ## Lab Completed🎉
