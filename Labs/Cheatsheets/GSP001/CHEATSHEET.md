@@ -18,9 +18,15 @@ gcloud compute instances create gcelab \
 
 gcloud compute firewall-rules create allow-http --network=default --allow=tcp:80 --target-tags=allow-http
 
-sleep 42
-
+nginx() {
 gcloud compute ssh --zone "$ZONE" "gcelab" --project "$ID" --quiet --command "sudo apt-get update && sudo apt-get install -y nginx && ps auwx | grep nginx"
+}
+
+while ! nginx ; do
+echo "Instance not ready yet, will try to add NGINX Server again in few seconds..."
+sleep 7
+done
+echo "NGINX Server Added Successfully!"
 
 gcloud compute instances create gcelab2 --machine-type e2-medium --zone=$ZONE
 ```
