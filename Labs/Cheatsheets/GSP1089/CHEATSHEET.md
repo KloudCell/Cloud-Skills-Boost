@@ -14,9 +14,9 @@
 
 **7. Create a function with concurrency**
 
-```
+```BASH
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
-source common_code.sh
+. common_code.sh
 
 gcloud config set compute/region $REGION
 
@@ -34,14 +34,14 @@ COLOR=yellow
 BUCKET="gs://gcf-gen2-storage-$ID"
 gsutil mb -l $REGION $BUCKET
 
-SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
+SA=$(gsutil kms serviceaccount -p $ID)
 gcloud projects add-iam-policy-binding $ID \
-  --member serviceAccount:$SERVICE_ACCOUNT \
+  --member serviceAccount:$SA \
   --role roles/pubsub.publisher
 
 deploy_1="gcloud functions deploy nodejs-http-function \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs18 \
   --entry-point helloWorld \
   --source . \
   --region $REGION \
@@ -52,7 +52,7 @@ deploy_1="gcloud functions deploy nodejs-http-function \
 
 deploy_2="gcloud functions deploy nodejs-storage-function \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs18 \
   --entry-point helloStorage \
   --source . \
   --region $REGION \
@@ -62,7 +62,7 @@ deploy_2="gcloud functions deploy nodejs-storage-function \
 
 deploy_3="gcloud functions deploy gce-vm-labeler \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime nodejs18 \
   --entry-point labelVmCreation \
   --source . \
   --region $REGION \
@@ -173,7 +173,7 @@ echo -e "auditConfigs:\n- auditLogConfigs:\n  - logType: ADMIN_READ\n  - logType
 gcloud projects set-iam-policy $ID /tmp/policy.yaml
 
 gcloud projects add-iam-policy-binding $ID \
-  --member serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \
+  --member serviceAccount:$SERVICE \
   --role roles/eventarc.eventReceiver
 
 cd ~
