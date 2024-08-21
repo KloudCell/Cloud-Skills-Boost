@@ -12,20 +12,12 @@
 
 - Get these values from below your `Login Credential`
 
-```
-export DATASET_NAME=
-```
-```
-export TABLE_NAME=
-```
-```
-export TOPIC_NAME=
-```
-```
-export JOB_NAME=
-```
-
 ```bash
+read -p "Enter BigQuery dataset name:" DATASET_NAME
+read -p "Enter BigQuery table name:" TABLE_NAME
+read -p "Enter Pub/Sub topic name:" TOPIC_NAME
+read -p "Enter Dataflow job name:" JOB_NAME
+
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
@@ -67,8 +59,6 @@ while true; do
     sleep 10
 done
 
-
-
 gcloud pubsub topics publish $TOPIC_NAME --message='{"data": "73.4 F"}'
 
 cat<<'EOF'>sql.sh
@@ -80,4 +70,5 @@ sed -i "s/TABLE/$TABLE_NAME/g"  sql.sh
 
 . sql.sh
 ```
+
 ## Lab Completed🎉
