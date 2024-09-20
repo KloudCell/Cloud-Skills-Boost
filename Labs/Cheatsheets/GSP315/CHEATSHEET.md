@@ -11,25 +11,20 @@
 - Set `TOPIC_NAME` to `Pub/Sub Topic Name` from [`Task 2`](https://www.cloudskillsboost.google/focuses/10379?parent=catalog#step6)
 
 ```
-TOPIC_NAME=
+export TOPIC_NAME=
 ```
 
 - Set `FUNCTION_NAME` to `Cloud Function Name` from [`Task 3`](https://www.cloudskillsboost.google/focuses/10379?parent=catalog#step7)
 
-
 ```
-FUNCTION_NAME=
-```
-
-- Set it to `Username 2`
-
-```
-USERNAME_2=
+export FUNCTION_NAME=
 ```
 
 ```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
-source common_code.sh
+. common_code.sh
+
+USER_NAME_2=$(gcloud projects get-iam-policy $ID --format="json" | jq -r --arg USER_NAME "$USER_NAME" '.bindings[] | select(.role == "roles/viewer") | .members[] | select(startswith("user:")) | select(. != "user:" + $USER_NAME) | sub("user:"; "")')
 
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/Labs/Cheatsheets/GSP315/index.js 2> /dev/null
 
@@ -48,57 +43,24 @@ gcloud services enable \
   logging.googleapis.com \
   pubsub.googleapis.com
 
-sleep 30
-
 gcloud projects add-iam-policy-binding $ID \
   --member=serviceAccount:$QWIKLABS_SERVICE \
   --role=roles/pubsub.publisher
 
-
- gcloud projects add-iam-policy-binding $ID \
-    --member=serviceAccount:$SERVICE \
-    --role=roles/eventarc.eventReceiver
+gcloud projects add-iam-policy-binding $ID \
+  --member=serviceAccount:$SERVICE \
+  --role=roles/eventarc.eventReceiver
 
 gcloud projects add-iam-policy-binding $ID \
     --member="serviceAccount:${KMS_SERVICE}" \
     --role='roles/pubsub.publisher'
-
-gcloud projects add-iam-policy-binding $ID \
-    --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-pubsub.iam.gserviceaccount.com \
-    --role=roles/iam.serviceAccountTokenCreator
 
 gsutil mb -c STANDARD -l $REGION -p $ID $BUCKET
 
-BUCKET=$BUCKET
-
 gcloud pubsub topics create $TOPIC_NAME
 
-
 sed -i "8c\functions.cloudEvent('$FUNCTION_NAME', cloudEvent => {" index.js
-
 sed -i "18c\  const topicName = '$TOPIC_NAME';" index.js
-
-sleep 30
-
-gcloud projects add-iam-policy-binding $ID \
-  --member=serviceAccount:$QWIKLABS_SERVICE \
-  --role=roles/pubsub.publisher
-
-
- gcloud projects add-iam-policy-binding $ID \
-    --member=serviceAccount:$SERVICE \
-    --role=roles/eventarc.eventReceiver
-    
-KMS_SERVICE="$(gsutil kms serviceaccount -p $ID)"
-
-gcloud projects add-iam-policy-binding $ID \
-    --member="serviceAccount:${KMS_SERVICE}" \
-    --role='roles/pubsub.publisher'
-
-gcloud projects add-iam-policy-binding $ID \
-    --member=serviceAccount:service-$PROJECT_NUMBER@gcp-sa-pubsub.iam.gserviceaccount.com \
-    --role=roles/iam.serviceAccountTokenCreator
-
 
 deploy_function () {
     gcloud functions deploy $FUNCTION_NAME \
@@ -110,7 +72,7 @@ deploy_function () {
       --trigger-bucket $BUCKET \
       --trigger-location $REGION \
       --max-instances 1 \
-      --quiet
+      -q
 }
     
 SERVICE_NAME="$FUNCTION_NAME"
@@ -131,9 +93,8 @@ wget https://storage.googleapis.com/cloud-training/gsp315/map.jpg
 gsutil cp map.jpg $BUCKET/
 
 gcloud projects remove-iam-policy-binding $ID \
---member=user:$USERNAME_2 \
+--member=user:$USER_NAME_2 \
 --role=roles/viewer
 ```
-
 
 ## Lab Completed🎉
