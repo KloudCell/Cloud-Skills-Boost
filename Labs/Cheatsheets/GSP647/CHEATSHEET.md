@@ -28,8 +28,7 @@
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
-USER_NAME_1=$(gcloud info --format='value(config.account)')
-USER_NAME_2=$(gcloud projects get-iam-policy $ID --format="json" | jq -r --arg USER_NAME_1 "$USER_NAME_1" '.bindings[] | select(.role == "roles/viewer") | .members[] | select(startswith("user:")) | select(. != "user:" + $USER_NAME_1) | sub("user:"; "")')
+USER_NAME_2=$(gcloud projects get-iam-policy $ID --format="json" | jq -r --arg USER_NAME "$USER_NAME" '.bindings[] | select(.role == "roles/viewer") | .members[] | select(startswith("user:")) | select(. != "user:" + $USER_NAME) | sub("user:"; "")')
 
 PROJECT_ID_1=$ID
 PROJECT_ID_2=$(gcloud projects list --format="value(projectId)" --filter="projectId!=${ID} AND projectId!=qwiklabs-resources")
@@ -40,8 +39,27 @@ ZONE_2=$(gcloud compute zones list --filter="region:$REGION" --format="value(NAM
 SA=devops@${PROJECT_ID_2}.iam.gserviceaccount.com
 
 cat > start.sh <<EOF
+SA=${SA}
 ZONE_1=${ZONE_1}
 ZONE_2=${ZONE_2}
+EOF
+
+cat << 'EOF' > check.sh
+#!/bin/bash
+
+display_yellow_message() {
+    echo -e "\033[1;33mPlease check the Green Ticks in Task 1 before moving further.\033[0m"
+    read -p "If you are getting Green Ticks in Task 1 then type 'y' to continue: " response
+}
+
+while true; do
+    display_yellow_message
+    if [[ "$response" == "y" ]]; then
+        break
+    fi
+done
+
+echo "Continuing with the next steps..."
 EOF
 
 cat > task.sh << EOF
@@ -99,11 +117,12 @@ gcloud auth login --no-launch-browser --quiet
 . start.sh
 gcloud compute instances create lab-1 --zone=$ZONE_1
 gcloud config set compute/zone $ZONE_2
+. check.sh
 gcloud init --skip-diagnostics --no-launch-browser
 . task.sh
 EOF
 
-gcloud compute scp start.sh task.sh login.sh centos-clean:~/ --zone "$ZONE" -q --project "$ID"
+gcloud compute scp start.sh task.sh login.sh check.sh centos-clean:~/ --zone "$ZONE" -q --project "$ID"
 gcloud compute ssh --zone "$ZONE" "centos-clean" --project "$ID" -q
 ```
 ```

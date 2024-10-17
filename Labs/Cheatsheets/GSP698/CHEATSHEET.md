@@ -6,7 +6,7 @@
 
 ```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
-source common_code.sh
+. common_code.sh
 
 export CAI_BUCKET_NAME=cai-$ID
 
@@ -25,28 +25,25 @@ cp policy-library/samples/storage_denylist_public.yaml policy-library/policies/c
 
 gsutil mb -l $REGION -p $ID gs://$CAI_BUCKET_NAME
 
-# Export resource data
 gcloud asset export \
     --output-path=gs://$CAI_BUCKET_NAME/resource_inventory.json \
     --content-type=resource \
     --project=$ID
 
-# Export IAM data
 gcloud asset export \
     --output-path=gs://$CAI_BUCKET_NAME/iam_inventory.json \
     --content-type=iam-policy \
     --project=$ID
 
-# Export org policy data
 gcloud asset export \
     --output-path=gs://$CAI_BUCKET_NAME/org_policy_inventory.json \
     --content-type=org-policy \
     --project=$ID
 
-# Export access policy data
 gcloud asset export \
     --output-path=gs://$CAI_BUCKET_NAME/access_policy_inventory.json \
     --content-type=access-policy \
     --project=$ID
 ```
+
 ## Lab Completed🎉

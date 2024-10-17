@@ -13,7 +13,8 @@
 **6. Make changes to the website**
 
 **7. Update website with zero downtime**
-```
+
+```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
@@ -35,7 +36,6 @@ gcloud builds submit --tag gcr.io/${ID}/monolith:1.0.0 .
 kubectl create deployment monolith --image=gcr.io/${ID}/monolith:1.0.0
 
 kubectl expose deployment monolith --type=LoadBalancer --port 80 --target-port 8080
-
 sleep 30
 
 kubectl scale deployment monolith --replicas=3
