@@ -28,7 +28,7 @@ echo -e "\n"
 - Need to create `API KEY` from console if you didn't get `Green Tick` in `Task 1`
 - Use `API KEY` link from terminal to naviagte to console for creating `API KEY`
 
-- Now, go to [Google Docs](https://docs.google.com/document/create/)
+- Now, go to [Google Docs](https://docs.google.com/document/create)
 - Click Extensions -> App Script
 - Paste below code on it
 
