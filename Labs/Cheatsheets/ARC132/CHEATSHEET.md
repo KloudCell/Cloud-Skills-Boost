@@ -140,7 +140,7 @@ curl -s -X POST -H "Content-Type: application/json" \
 sudo apt-get update
 sudo apt-get install -y jq
 
-curl "https://translation.googleapis.com/language/translate/v2?target=en&key=${API_KEY}&q=${TASK_4_REQUEST_SENTENCE}" > "$TASK_4_RESPONSE_FILE"
+curl --http1.1 "https://translation.googleapis.com/language/translate/v2?target=en&key=${API_KEY}&q=${TASK_4_REQUEST_SENTENCE}" > "$TASK_4_RESPONSE_FILE"
 
 decoded_sentence=$(python -c "import urllib.parse; print(urllib.parse.unquote('$TASK_5_REQUEST_SENTENCE'))")
 
