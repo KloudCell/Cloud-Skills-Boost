@@ -1,34 +1,26 @@
 # **To be execute in Google Cloud Shell**
 
-**1. Create a custom network, subnetworks and firewall rules**
+**Create a custom network, subnetworks and firewall rules**
 
-**2. Create three instances in specified zones for Traceroute and performance testing.**
+<!-- **2. Create three instances in specified zones for Traceroute and performance testing.** -->
 
-- Go to [Task 6](https://www.cloudskillsboost.google/focuses/1743?parent=catalog#step10)
-
-- Get `ZONE_1` value from `us-test-01`
-```
-ZONE_1=
-```
-- Get `ZONE_2` value from `us-test-02`
-```
-ZONE_2=
-```
-- Get `ZONE_3` value from `us-test-03`
-```
-ZONE_3=
-```
+- In [Task 2](https://www.cloudskillsboost.google/focuses/1743?parent=catalog#step6) go to step `"5"` and get the region for `REGION_2` and `REGION_3`.
 
 ```
-REGION_1=${ZONE_1::-2}
-REGION_2=${ZONE_2::-2}
-REGION_3=${ZONE_3::-2}
+export REGION_2=
+```
+```
+export REGION_3=
+```
+```bash
+wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
+source common_code.sh
 
 gcloud compute networks create taw-custom-network --subnet-mode custom
 
-gcloud compute networks subnets create subnet-$REGION_1 \
+gcloud compute networks subnets create subnet-$REGION \
    --network taw-custom-network \
-   --region $REGION_1 \
+   --region $REGION \
    --range 10.0.0.0/16
 
 gcloud compute networks subnets create subnet-$REGION_2 \
@@ -52,8 +44,9 @@ gcloud compute firewall-rules create "nw101-allow-internal" --allow tcp:0-65535,
 gcloud compute firewall-rules create "nw101-allow-ssh" --allow tcp:22 --network "taw-custom-network" --target-tags "ssh"
 
 gcloud compute firewall-rules create "nw101-allow-rdp" --allow tcp:3389 --network "taw-custom-network"
+```
 
-gcloud compute instances create us-test-01 \
+<!-- gcloud compute instances create us-test-01 \
 --subnet subnet-$REGION_1 \
 --zone $ZONE_1 \
 --machine-type e2-standard-2 \
@@ -69,7 +62,6 @@ gcloud compute instances create us-test-03 \
 --subnet subnet-$REGION_3 \
 --zone $ZONE_3 \
 --machine-type e2-standard-2 \
---tags ssh,http,rules
-```
+--tags ssh,http,rules -->
 
 ## Lab Completed🎉
