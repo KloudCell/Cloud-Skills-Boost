@@ -12,7 +12,7 @@ source common_code.sh
 
 gcloud config set compute/zone $ZONE
 
-  gcloud compute instances create www1 \
+gcloud compute instances create www1 \
     --zone=$ZONE \
     --tags=network-lb-tag \
     --machine-type=e2-small \
@@ -25,7 +25,7 @@ gcloud config set compute/zone $ZONE
       echo "
 <h3>Web Server: www1</h3>" | tee /var/www/html/index.html'
 
-  gcloud compute instances create www2 \
+gcloud compute instances create www2 \
     --zone=$ZONE \
     --tags=network-lb-tag \
     --machine-type=e2-small \
@@ -38,8 +38,7 @@ gcloud config set compute/zone $ZONE
       echo "
 <h3>Web Server: www2</h3>" | tee /var/www/html/index.html'
 
-
-  gcloud compute instances create www3 \
+gcloud compute instances create www3 \
     --zone=$ZONE  \
     --tags=network-lb-tag \
     --machine-type=e2-small \
@@ -52,12 +51,10 @@ gcloud config set compute/zone $ZONE
       echo "
 <h3>Web Server: www3</h3>" | tee /var/www/html/index.html'
 
-
 gcloud compute firewall-rules create www-firewall-network-lb \
     --target-tags network-lb-tag --allow tcp:80
 
 gcloud compute instances list
-
 
 gcloud compute addresses create network-lb-ip-1 \
   --region $REGION
@@ -78,7 +75,6 @@ gcloud compute forwarding-rules create www-rule \
 
 IPADDRESS=$(gcloud compute forwarding-rules describe www-rule --region $REGION --format="json" | jq -r .IPAddress)
 
-
 gcloud compute instance-templates create lb-backend-template \
    --region=$REGION \
    --network=default \
@@ -98,7 +94,6 @@ gcloud compute instance-templates create lb-backend-template \
      tee /var/www/html/index.html
      systemctl restart apache2'
 
-
 gcloud compute instance-groups managed create lb-backend-group \
    --template=lb-backend-template --size=2 --zone=$ZONE
 
@@ -109,7 +104,6 @@ gcloud compute firewall-rules create fw-allow-health-check \
   --source-ranges=130.211.0.0/22,35.191.0.0/16 \
   --target-tags=allow-health-check \
   --rules=tcp:80
-
 
 gcloud compute addresses create lb-ipv4-1 \
   --ip-version=IPV4 \
@@ -145,4 +139,5 @@ gcloud compute forwarding-rules create http-content-rule \
    --target-http-proxy=http-lb-proxy \
    --ports=80
 ```
+
 ## Lab Completed🎉
