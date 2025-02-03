@@ -8,30 +8,30 @@
 
 **4. Upload an image for Landmark Annotation to your bucket**
 
-```
-export API_KEY=$(gcloud beta services api-keys create --display-name='API key 1' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
+```bash
+export API_KEY=$(gcloud beta services api-keys create --display-name='KloudCell' 2>&1 >/dev/null | grep -o 'keyString":"[^"]*' | cut -d'"' -f3)
 
-export ID=$(gcloud info --format='value(config.project)')-bucket
+export BUCKET=$(gcloud info --format='value(config.project)')-bucket
 
-gsutil mb gs://$ID
+gsutil mb gs://$BUCKET
 
 wget -O donuts.png https://cdn.qwiklabs.com/V4PmEUI7yXdKpytLNRqwV%2ByGHqym%2BfhdktVi8nj4pPs%3D 2> /dev/null
 
-gsutil cp donuts.png gs://$ID
+gsutil cp donuts.png gs://$BUCKET
 
-gsutil acl ch -u AllUsers:R gs://$ID/donuts.png
+gsutil acl ch -u AllUsers:R gs://$BUCKET/donuts.png
 
 wget -O selfie.png https://cdn.qwiklabs.com/5%2FxwpTRxehGuIRhCz3exglbWOzueKIPikyYj0Rx82L0%3D 2> /dev/null
 
-gsutil cp selfie.png gs://$ID
+gsutil cp selfie.png gs://$BUCKET
 
-gsutil acl ch -u AllUsers:R gs://$ID/selfie.png
+gsutil acl ch -u AllUsers:R gs://$BUCKET/selfie.png
 
 wget -O city.png https://cdn.qwiklabs.com/9nhXkPugaX2KuBtzDMgr24M%2BiaqXaorWzzhFHZ0XzX8%3D 2> /dev/null
 
-gsutil cp city.png gs://$ID
+gsutil cp city.png gs://$BUCKET
 
-gsutil acl ch -u AllUsers:R gs://$ID/city.png
+gsutil acl ch -u AllUsers:R gs://$BUCKET/city.png
 ```
 
 ## Lab Completed🎉
