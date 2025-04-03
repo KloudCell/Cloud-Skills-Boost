@@ -8,17 +8,19 @@
 
 - Get `TOPIC NAME` from [Task 2](https://www.cloudskillsboost.google/games/5044/labs/32922#step6)
 
-```
-TOPIC_NAME=
-```
-
 - Get `FUNCTION_NAME` from [Task 3](https://www.cloudskillsboost.google/games/5044/labs/32922#step7)
 
-```
-FUNCTION_NAME=
-```
-
 ```bash
+echo "Please enter the TOPIC_NAME:"
+read TOPIC_NAME
+
+echo "Please enter the FUNCTION_NAME:"
+read FUNCTION_NAME
+
+echo -e "You entered the following values:"
+echo -e "\033[0;32mTOPIC_NAME:\033[0m \033[1;35m$TOPIC_NAME\033[0m"
+echo -e "\033[0;32mFUNCTION_NAME:\033[0m \033[1;35m$FUNCTION_NAME\033[0m"
+
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
@@ -143,7 +145,7 @@ gcloud functions deploy $FUNCTION_NAME \
 
 wget https://storage.googleapis.com/cloud-training/gsp315/map.jpg
 
-sleep 10
+sleep 12
 
 gsutil cp map.jpg gs://$BUCKET/map.jpg
 ```

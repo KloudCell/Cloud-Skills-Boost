@@ -34,4 +34,5 @@ gcloud eventarc triggers create pubsub-events-trigger \
 gcloud pubsub topics publish $ID-topic \
   --message="Test message"
 ```
+
 ## Lab Completed🎉

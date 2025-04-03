@@ -57,4 +57,5 @@ EOF
 gcloud data-catalog tags create --entry=${ENTRY_NAME} \
     --tag-template=protected_raw_data_flag --tag-template-location=$REGION --tag-file=tag_file.json
 ```
+
 ## Lab Completed🎉
