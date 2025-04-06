@@ -1,4 +1,4 @@
-# **To be done using Google Cloud Console and Shell**
+# **To be done using Google Cloud Shell**
 
 **1. Deploy a web server VM instance**
 
@@ -6,7 +6,7 @@
 
 **3. Create the Cloud SQL instance**
 
-```
+```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 . common_code.sh
 

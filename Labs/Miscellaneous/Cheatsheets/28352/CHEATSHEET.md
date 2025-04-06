@@ -8,7 +8,7 @@
 
 **4. Customer Targeting**
 
-```
+```bash
 bq --location EU mk --dataset movies
 
 bq load --source_format=CSV \

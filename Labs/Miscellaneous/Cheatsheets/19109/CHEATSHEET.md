@@ -5,7 +5,8 @@
 **2. Modify GKE clusters**
 
 **3. Deploy a sample nginx workload**
-```
+
+```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 . common_code.sh
 

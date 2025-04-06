@@ -11,7 +11,7 @@ ZONE_1=
 ```
 ZONE_2=
 ```
-```
+```bash
 gcloud compute networks create mynetwork \
 --project=$GOOGLE_CLOUD_PROJECT \
 --subnet-mode=auto
@@ -30,4 +30,5 @@ gcloud compute instances create mynet-eu-vm \
 --machine-type=e2-micro \
 --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=mynetwork
 ```
+
 ## Lab Completed🎉

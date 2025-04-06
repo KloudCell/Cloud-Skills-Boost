@@ -8,7 +8,7 @@
 
 **4. Set up the Service Account User and create a VM**
 
-```
+```bash
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 . common_code.sh
 
@@ -18,14 +18,13 @@ touch sample.txt
 
 gsutil cp sample.txt gs://$ID
 
-echo -e "\033[33mPaste 'Username 2' here:\033[0m \c"
-read USER_2
+USER_NAME_2=$(gcloud projects get-iam-policy $ID --format="json" | jq -r --arg USER_NAME "$USER_NAME" '.bindings[] | select(.role == "roles/viewer") | .members[] | select(startswith("user:")) | select(. != "user:" + $USER_NAME) | sub("user:"; "")')
 
-gcloud projects remove-iam-policy-binding $ID --member=user:$USER_2 --role=roles/viewer
+gcloud projects remove-iam-policy-binding $ID --member=user:$USER_NAME_2 --role=roles/viewer
 
 gcloud projects add-iam-policy-binding $ID \
   --role=roles/storage.objectViewer \
-  --member=user:$USER_2
+  --member=user:$USER_NAME_2
 
 gcloud iam service-accounts create read-bucket-objects --display-name "read-bucket-objects" 
 
