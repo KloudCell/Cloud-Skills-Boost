@@ -15,6 +15,8 @@ read -p "Enter Cloud Storage Function Name:" FUNCTION_NAME
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
+export VERSION=$(gcloud functions runtimes list --filter='name~^node' --format='value(name)' --region $REGION| sort -V | tail -n 1)
+
 gcloud services enable \
   artifactregistry.googleapis.com \
   cloudfunctions.googleapis.com \
@@ -56,7 +58,7 @@ EOF
 deploy_1() {
 gcloud functions deploy $FUNCTION_NAME \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime ${VERSION} \
   --entry-point $FUNCTION_NAME \
   --source . \
   --region $REGION \
@@ -95,7 +97,7 @@ EOF
 deploy_2() {
 gcloud functions deploy $HTTP_FUNCTION \
   --gen2 \
-  --runtime nodejs16 \
+  --runtime ${VERSION} \
   --entry-point $HTTP_FUNCTION \
   --source . \
   --region $REGION \
