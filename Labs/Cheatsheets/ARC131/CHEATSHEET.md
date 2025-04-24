@@ -37,7 +37,7 @@ read -p "Enter 'response file' name from 'Task 3':" TASK_3_RESPONSE_FILE
 cat << 'EOF' > script.sh
 #!/bin/bash
 
-cat > "TASK_2_REQUEST_FILE}" <<EOJSON
+cat > "${TASK_2_REQUEST_FILE}" <<EOJSON
 {
   "config": {
     "encoding": "LINEAR16",
