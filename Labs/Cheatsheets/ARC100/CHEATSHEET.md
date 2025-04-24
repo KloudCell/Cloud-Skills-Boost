@@ -24,6 +24,8 @@ echo -e "\033[0;32mFUNCTION_NAME:\033[0m \033[1;35m$FUNCTION_NAME\033[0m"
 wget https://raw.githubusercontent.com/KloudCell/Cloud-Skills-Boost/main/resources/common_code.sh 2> /dev/null
 source common_code.sh
 
+export VERSION=$(gcloud functions runtimes list --filter='name~^node' --format='value(name)' --region $REGION| sort -V | tail -n 1)
+
 BUCKET=memories-bucket-$ID
 KMS_SERVICE_ACCOUNT=$(gsutil kms serviceaccount -p $PROJECT_NUMBER)
 
@@ -134,14 +136,23 @@ cat <<'EOF'> package.json
 }
 EOF
 
-gcloud functions deploy $FUNCTION_NAME \
---gen2 \
---runtime=nodejs20 \
---region=$REGION \
---source=. \
---entry-point=$FUNCTION_NAME \
---trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
---trigger-event-filters="bucket=$BUCKET"
+deploy() {
+  gcloud functions deploy $FUNCTION_NAME \
+  --gen2 \
+  --runtime=${VERSION} \
+  --region=$REGION \
+  --source=. \
+  --entry-point=$FUNCTION_NAME \
+  --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
+  --trigger-event-filters="bucket=$BUCKET"
+}
+
+while ! deploy; do
+  echo -e "\033[0;31mDeployment failed\033[0m. Retrying again in a few seconds..."
+  sleep 12
+done
+
+echo -e "\033[0;32mDeployment succeeded\033[0m!"
 
 wget https://storage.googleapis.com/cloud-training/gsp315/map.jpg
 
